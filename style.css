@@ -1,1 +1,81 @@
+.bodytop {
+  display: flex;
+}
 
+.bodyleft {
+  width: 50%;
+}
+
+.characterbox {
+  height: 700px;
+  background-color: rgba(165, 42, 42, 0.582);
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.healthNumberContainer {
+  display: flex;
+  justify-content: space-evenly;
+}
+.characterbox p {
+  background-color: red;
+  min-height: 30px;
+
+  border: solid 1px black;
+}
+.bodyright {
+  width: 50%;
+}
+.enemybox {
+  height: 700px;
+  background-color: rgba(61, 42, 165, 0.582);
+  padding-left: 10%;
+  padding-right: 10%;
+}
+.enemyHealthNumberContainer {
+  display: flex;
+  justify-content: space-evenly;
+}
+.enemybox p {
+  background-color: red;
+  min-height: 30px;
+
+  border: solid 1px black;
+}
+
+.statsbar {
+  background-color: rgba(0, 0, 255, 0.363);
+  height: 75px;
+}
+
+.bodybottom {
+  display: flex;
+}
+
+.actionbox {
+  background-color: aqua;
+
+  width: 33.33%;
+}
+.equipmentbox {
+  background-color: aquamarine;
+  width: 33.33%;
+}
+
+.equipmentcontainer {
+  display: flex;
+}
+.weaponbox {
+  width: 33%;
+}
+.armorbox {
+  width: 33%;
+}
+.shieldbox {
+  width: 33%;
+}
+.optionsbox {
+  background-color: blanchedalmond;
+  height: 50px;
+  width: 33.33%;
+}
