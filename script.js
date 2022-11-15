@@ -89,12 +89,7 @@ document
     }
   });
 
-//loot selection
-document
-  .querySelector(".btnWeaponUpgrade")
-  .addEventListener("click", function () {
-    //add something here to get loot
-  });
+//loot selection, make a loot takble type thing here
 
 //enemy list
 const enemyList = [
@@ -118,7 +113,16 @@ const enemyList = [
   "Dwarf",
   "Thug",
   "Skeleton",
+  "Zombie",
+  "Cult Member",
+  "Rogue",
+  "Scorpion",
+  "Skeleton Mage",
+  "Thief",
+  "Unicorn",
+  "dungeon Spider",
+  "Bear",
 ];
 
 //enemy loot
-const ratLoot = ["1"];
+const ratLoot = ["1", "2", "3", "4", "5"];
