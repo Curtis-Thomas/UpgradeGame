@@ -11,7 +11,7 @@ html {
 }
 
 .characterbox {
-  height: 400px;
+  height: 250px;
   background-color: rgba(165, 42, 42, 0.582);
   padding-left: 10%;
   padding-right: 10%;
@@ -32,7 +32,7 @@ html {
   width: 50%;
 }
 .enemybox {
-  height: 400px;
+  height: 250px;
   background-color: rgba(61, 42, 165, 0.582);
   padding-left: 10%;
   padding-right: 10%;
@@ -44,7 +44,7 @@ html {
 .enemybox p {
   background-color: red;
   min-height: 30px;
-  width: 10%;
+  width: 1%;
 
   border: solid 1px black;
 }
@@ -80,7 +80,7 @@ html {
 .shieldbox {
   width: 33%;
 }
-.optionsbox {
+.shopbox {
   background-color: blanchedalmond;
   height: 50px;
   width: 33.33%;
@@ -90,9 +90,26 @@ html {
   visibility: hidden;
 }
 
+.shopButtons button {
+  display: block;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
 @media only screen and (max-width: 600px) {
   html {
     padding-left: 0%;
     padding-right: 0%;
   }
+
+  h3 {
+    font-size: 0.75rem;
+  }
+}
+
+.revive5 {
+  visibility: hidden;
+}
+.revive10 {
+  visibility: hidden;
 }
