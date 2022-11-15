@@ -1,3 +1,7 @@
+html {
+  padding-left: 15%;
+  padding-right: 15%;
+}
 .bodytop {
   display: flex;
 }
@@ -7,7 +11,7 @@
 }
 
 .characterbox {
-  height: 700px;
+  height: 400px;
   background-color: rgba(165, 42, 42, 0.582);
   padding-left: 10%;
   padding-right: 10%;
@@ -20,6 +24,7 @@
 .characterbox p {
   background-color: red;
   min-height: 30px;
+  width: 10%;
 
   border: solid 1px black;
 }
@@ -27,7 +32,7 @@
   width: 50%;
 }
 .enemybox {
-  height: 700px;
+  height: 400px;
   background-color: rgba(61, 42, 165, 0.582);
   padding-left: 10%;
   padding-right: 10%;
@@ -39,6 +44,7 @@
 .enemybox p {
   background-color: red;
   min-height: 30px;
+  width: 10%;
 
   border: solid 1px black;
 }
@@ -78,4 +84,15 @@
   background-color: blanchedalmond;
   height: 50px;
   width: 33.33%;
+}
+
+.revive {
+  visibility: hidden;
+}
+
+@media only screen and (max-width: 600px) {
+  html {
+    padding-left: 0%;
+    padding-right: 0%;
+  }
 }
