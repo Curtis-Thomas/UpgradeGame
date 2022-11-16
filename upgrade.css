@@ -2,6 +2,10 @@ html {
   padding-left: 15%;
   padding-right: 15%;
 }
+
+.fight {
+  visibility: hidden;
+}
 .bodytop {
   display: flex;
 }
@@ -97,10 +101,6 @@ html {
   margin-top: 10px;
 }
 
-.collectGold {
-  visibility: hidden;
-}
-
 .shopButtons button {
   display: block;
   margin-left: 5px;
@@ -123,4 +123,18 @@ html {
 }
 .revive10 {
   visibility: hidden;
+}
+.autoFightBox {
+  margin-top: 50px;
+}
+.autoFightBox button {
+  display: block;
+}
+
+.fightMonsters button {
+  display: block;
+}
+
+.drop {
+  background-color: gold;
 }
