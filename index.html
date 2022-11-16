@@ -12,8 +12,6 @@
       <div class="bodyleft">
         <div class="characterbox">
           <h2>Character</h2>
-          <h3>Combat Level</h3>
-          <h3 class="cmbLvl">#</h3>
           <div class="healthNumberContainer">
             <h3>Health</h3>
 
@@ -22,108 +20,148 @@
 
           <p class="healthBar"></p>
         </div>
-        <p>Attack Damage</p>
-        <p class="playerHitBox">#</p>
+        <div class="attackDamage">
+          <p>Attack Damage</p>
+          <p class="playerHitBox">#</p>
+        </div>
       </div>
       <div class="bodyright">
         <div class="enemybox">
-          <h2 class="enemyName">Enemy Name</h2>
-          <h3>enemy no</h3>
-          <h3 class="enemyNo">0</h3>
+          <h2 class="enemyName">!!!CHOOSE AN ENEMY!!!</h2>
+
           <div class="enemyHealthNumberContainer">
             <h3>Enemy Health</h3>
             <h4 class="enemyHealthNumber">*</h4>
           </div>
           <p class="enemyHealthBar"></p>
         </div>
-        <p>Attack Damage</p>
-        <p class="enemyHitBox">#</p>
+        <div class="enemyAttackDamage">
+          <p>Attack Damage</p>
+          <p class="enemyHitBox">1</p>
+        </div>
       </div>
     </div>
     <div class="statsbar">
       <div class="lootcontainer">
-        <h2>Loot Table</h2>
+        <h2>Loot</h2>
         <p class="drop">#</p>
-        <h3>Gold</h3>
-        <p class="lootGold">0</p>
-        <h3>Bones</h3>
-        <p class="bones">#</p>
-        <button class="collectGold">Collect Gold</button>
-
-        <!-- <button class="loot1">Loot</button> -->
+      </div>
+      <div class="lootItems">
+        <div class="lootBones">
+          <h3>Bones</h3>
+          <p class="bones">#</p>
+        </div>
       </div>
     </div>
 
     <div class="bodybottom">
       <div class="actionbox">
-        <h2>Actionbox</h2>
+        <div class="actionHeading">
+          <h2>Actionbox</h2>
+        </div>
         <button class="fight">FIGHT</button>
-
-        <!-- <button class="fight">Fight</button> -->
 
         <button class="revive">Revive</button>
         <div class="fightMonsters">
           <h3>Choose Enemy</h3>
+          <p class="startTip">(start with chicken)</p>
           <button class="fightChicken">Chicken</button>
           <button class="fightBear">Bear</button>
           <button class="fightBarbarian">Barbarian</button>
         </div>
       </div>
-      <div class="equipmentbox">
-        <h2>Stats</h2>
+      <div class="statsbox">
+        <div class="statsHeader">
+          <h2>Stats</h2>
+        </div>
 
-        <div class="equipmentcontainer">
-          <div class="weaponbox">
-            <div class="defenceBox">
+        <div class="statscontainer">
+          <div class="defenceBox">
+            <div class="defenceBoxDefence">
               <h3>Defence</h3>
               <h3 class="defence">1</h3>
             </div>
-            <h3>Xp</h3>
-            <h3 class="defenceXp">1</h3>
+            <div class="defenceBoxXp">
+              <h3>Xp</h3>
+              <h3 class="defenceXp">1</h3>
+            </div>
           </div>
-          <div class="armorbox"></div>
-          <div class="shieldbox">
-            <h3>Strength</h3>
-            <h3 class="strength"></h3>
-            <h3>Xp</h3>
-            <h3 class="xp"></h3>
-            <h3>Health</h3>
-            <h3 class="healthLevel">10</h3>
-            <h3>xp</h3>
-            <h3 class="healthXp">1350</h3>
+
+          <div class="strengthBox">
+            <div class="strenghtBoxStrength">
+              <h3>Strength</h3>
+              <h3 class="strength"></h3>
+            </div>
+            <div class="strengthBoxXP">
+              <h3>Xp</h3>
+              <h3 class="xp"></h3>
+            </div>
+          </div>
+          <div class="healthBox">
+            <div class="healthBoxHealth">
+              <h3>Health</h3>
+              <h3 class="healthLevel">10</h3>
+            </div>
+            <div class="healthBoxXp">
+              <h3>xp</h3>
+              <h3 class="healthXp">1350</h3>
+            </div>
           </div>
         </div>
         <div class="equipment">
           <h2>Equipment</h2>
-          <h3>weapon</h3>
-          <h3 class="damage">1</h3>
-          <h3>Armor</h3>
-          <h3 class="armor">0</h3>
-          <h3>Hit Speed</h3>
-          <p class="hitSpeed">#</p>
+          <div class="weapon_armor">
+            <h3>weapon</h3>
+            <h3 class="damage">1</h3>
+            <h3>Armor</h3>
+            <h3 class="armor">0</h3>
+          </div>
+          <div class="hitSpeedContainer">
+            <h3>Hit Speed</h3>
+            <p class="hitSpeed">#</p>
+          </div>
         </div>
       </div>
       <div class="shopbox">
         <div class="shopMyGold">
           <h2>Shop</h2>
-          <p>My Gold</p>
-          <p class="gold">0</p>
+          <div class="myShop-Gold">
+            <p>My Gold</p>
+            <p class="gold">0</p>
+          </div>
         </div>
         <div class="shopButtons">
-          <p>10 gold</p>
-          <button class="shopBronzeDagger">Bronze Dagger</button>
-          <p>100 gold</p>
-          <button class="shopIronDagger">Iron Dagger</button>
-          <p>500 gold</p>
-          <button class="shopSteelDagger">Steel Dagger</button>
-          <p>10000 gold</p>
-          <button class="abyssalLeach">Abyssal Leach</button>
-          <p>100 gold</p>
-          <button class="shopBronzeArmor">Bronze Armor</button>
-          <p>1000 gold</p>
-          <button class="shopIronArmor">Iron Armor</button>
-          <p>5000</p>
-          <button class="shopSteelArmor">Steel Armor</button>
+          <div class="daggershop">
+            <p>Weapons</p>
+            <div class="bronzeDagger">
+              <p>10 gold</p>
+              <button class="shopBronzeDagger">Bronze Dagger</button>
+            </div>
+            <div class="ironDagger">
+              <p>100 gold</p>
+              <button class="shopIronDagger">Iron Dagger</button>
+            </div>
+            <div class="steelDagger">
+              <p>500 gold</p>
+              <button class="shopSteelDagger">Steel Dagger</button>
+            </div>
+          </div>
+
+          <div class="armorShop">
+            <div class="bronzeArmor">
+              <p>Armor</p>
+              <p>100 gold</p>
+              <button class="shopBronzeArmor">Bronze Armor</button>
+            </div>
+            <div class="ironArmor">
+              <p>1000 gold</p>
+              <button class="shopIronArmor">Iron Armor</button>
+            </div>
+            <div class="steelArmor">
+              <p>5000</p>
+              <button class="shopSteelArmor">Steel Armor</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -1,22 +1,38 @@
 html {
   padding-left: 15%;
   padding-right: 15%;
+  background-color: #0f0f0f;
+  color: white;
 }
 
-.fight {
-  visibility: hidden;
+body {
+  border: solid 1px rgb(110, 109, 109);
 }
+
+h2,
+h3,
+h4,
+h5 {
+  font-size: 0.9rem;
+  text-align: center;
+}
+
 .bodytop {
   display: flex;
 }
 
 .bodyleft {
   width: 50%;
+  border-left: 1px solid #0f0f0f;
+  border-top: 1px solid #0f0f0f;
+  border-bottom: 1px solid #0f0f0f;
+  background-color: rgba(68, 21, 21, 0.582);
 }
 
 .characterbox {
-  height: 250px;
-  background-color: rgba(165, 42, 42, 0.582);
+  height: 175px;
+  background-color: rgba(26, 6, 6, 0.582);
+
   padding-left: 10%;
   padding-right: 10%;
 }
@@ -34,9 +50,11 @@ html {
 }
 .bodyright {
   width: 50%;
+  border: 1px solid #0f0f0f;
+  background-color: rgba(61, 42, 165, 0.582);
 }
 .enemybox {
-  height: 250px;
+  height: 175px;
   background-color: rgba(61, 42, 165, 0.582);
   padding-left: 10%;
   padding-right: 10%;
@@ -54,7 +72,7 @@ html {
 }
 
 .statsbar {
-  background-color: rgba(0, 0, 255, 0.363);
+  background-color: rgb(48, 6, 6);
 }
 
 .bodybottom {
@@ -62,20 +80,50 @@ html {
 }
 
 .actionbox {
-  background-color: aqua;
+  background-color: #1d1d1d;
+  padding: 10px;
 
   width: 33.33%;
 }
-.equipmentbox {
-  background-color: aquamarine;
+
+.statsbox {
   width: 33.33%;
 }
 
-.equipmentcontainer {
+.defenceBox {
   display: flex;
+  justify-content: space-between;
+  padding-left: 10%;
+  padding-right: 10%;
+  box-shadow: inset 0 0 10px #1d1d1d;
 }
-.weaponbox {
-  width: 33%;
+.strengthBox {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10%;
+  padding-right: 10%;
+  border-left: solid 1px #3d3d3d;
+  border-right: solid 1px #3d3d3d;
+  border-bottom: solid 1px #3d3d3d;
+  box-shadow: inset 0 0 10px #1d1d1d;
+}
+.defenceBox {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10%;
+  padding-right: 10%;
+  border: solid 1px #3d3d3d;
+  box-shadow: inset 0 0 10px #1d1d1d;
+}
+.healthBox {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10%;
+  padding-right: 10%;
+  border-left: solid 1px #3d3d3d;
+  border-right: solid 1px #3d3d3d;
+  border-bottom: solid 1px #3d3d3d;
+  box-shadow: inset 0 0 10px #1d1d1d;
 }
 .armorbox {
   width: 33%;
@@ -84,21 +132,21 @@ html {
   width: 33%;
 }
 .shopbox {
-  background-color: blanchedalmond;
+  background-color: #1d1d1d;
 
   width: 33.33%;
 }
 
 .shopMyGold {
-  background-color: greenyellow;
+  border: 1px solid #1d1d1d;
+  background-color: #2c2c2c;
+  box-shadow: inset 0 0 10px #383838;
+  padding: 1px;
+  margin-bottom: 10px;
 }
 
 .revive {
   visibility: hidden;
-}
-
-.fightMonsters button {
-  margin-top: 10px;
 }
 
 .shopButtons button {
@@ -118,23 +166,141 @@ html {
   }
 }
 
-.revive5 {
-  visibility: hidden;
-}
-.revive10 {
-  visibility: hidden;
-}
-.autoFightBox {
-  margin-top: 50px;
-}
 .autoFightBox button {
   display: block;
 }
 
-.fightMonsters button {
+button {
   display: block;
+  width: 80px;
+  height: 40px;
+  margin-bottom: 10px;
 }
 
 .drop {
-  background-color: gold;
+  background-color: rgb(126, 108, 10);
+}
+.weapon_armor {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10%;
+  padding-right: 10%;
+  border: solid 1px #3d3d3d;
+  box-shadow: inset 0 0 10px #1d1d1d;
+}
+.hitSpeedContainer {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10%;
+  padding-right: 10%;
+  border-left: solid 1px #3d3d3d;
+  border-right: solid 1px #3d3d3d;
+  border-bottom: solid 1px #3d3d3d;
+  box-shadow: inset 0 0 10px #1d1d1d;
+}
+
+.shopMyGold {
+  text-align: center;
+}
+.shopButtons {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: space-evenly;
+}
+.daggershop {
+  border: 1px solid #3d3d3d;
+}
+.bronzeDagger button {
+  box-shadow: inset 0 0 10px #ac6b2a;
+  background-color: #553515;
+}
+.ironDagger button {
+  box-shadow: inset 0 0 10px #6f737e;
+  background-color: #4a4e55;
+}
+.steelDagger button {
+  box-shadow: inset 0 0 10px #808181;
+  background-color: #858586;
+}
+.armorShop {
+  border: 1px solid #3d3d3d;
+}
+.shopBronzeArmor {
+  box-shadow: inset 0 0 10px #ac6b2a;
+  background-color: #553515;
+}
+.shopIronArmor {
+  box-shadow: inset 0 0 10px #6f737e;
+  background-color: #4a4e55;
+}
+.shopSteelArmor {
+  box-shadow: inset 0 0 10px #808181;
+  background-color: #858586;
+}
+
+.shopButtons button {
+  text-decoration: none;
+  display: inline-block;
+}
+.statsbox {
+  text-align: center;
+  background-color: #222222;
+  color: white;
+}
+.equipment {
+  text-align: center;
+}
+.enemyAttackDamage {
+  display: flex;
+  padding-left: 20%;
+  padding-right: 20%;
+  justify-content: space-between;
+  text-align: center;
+  box-shadow: inset 0 0 30px #962929;
+  background-color: #2c0c0c;
+}
+.attackDamage {
+  display: flex;
+  padding-left: 20%;
+  padding-right: 20%;
+  justify-content: space-between;
+  box-shadow: inset 0 0 30px #962929;
+
+  background-color: #2c0c0c;
+}
+.lootcontainer {
+  text-align: center;
+  padding-top: 10px;
+}
+.lootcontainer p {
+  margin-left: 33.3%;
+  margin-right: 33.3%;
+}
+
+.lootItems {
+  display: flex;
+  padding: 10px;
+}
+
+.actionHeading {
+  padding: 20px;
+  border: 1px solid #1d1d1d;
+  background-color: #2c2c2c;
+  box-shadow: inset 0 0 10px #383838;
+}
+.statsHeader {
+  padding: 1px;
+  box-shadow: inset 0 0 10px #383838;
+}
+.myShop-Gold {
+  display: flex;
+  padding-left: 20%;
+  padding-right: 20%;
+  justify-content: space-between;
+}
+
+.fightMonsters p {
+  font-size: 1rem;
+  text-align: center;
 }
