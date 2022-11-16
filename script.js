@@ -1,5 +1,8 @@
 "use-strict";
 
+//attack speed (rotation seconds)
+let attackSpeed = 1500;
+let hitSpeed = 1300;
 //Strength
 let strength = 1;
 document.querySelector(".strength").textContent = strength;
@@ -18,98 +21,130 @@ let healthXp = 1350;
 let armor = 1;
 let defence = 1;
 let defenceXp = 1;
-let myAttack = strength * 2.5 + damage + bonus;
-console.log(myAttack);
+let myAttack = 1;
 let gold = 0;
 let enemyHealth = 1;
 let enemyAttack = 0;
 let enemyNo = 1;
 
+let lootGold = 0;
+
 let cmbLvl = healthLevel + defence + strength / 3;
 
-//game loop
-if (myHealth >= 0) {
-  setInterval(function updateMyGame() {
-    document.querySelector(".cmbLvl").textContent = cmbLvl;
-    if (myHealth < 0) {
-      myHealth = -1;
-    }
-
-    if (myHealth >= 0) {
-      document.querySelector(".healthXp").textContent = healthXp;
-      xp += myAttack;
-      document.querySelector(".xp").textContent = xp;
-      healthXp += enemyNo;
-      document.querySelector(".healthXp").textContent = healthXp;
-      defenceXp += 4;
-      document.querySelector(".defenceXp").textContent = defenceXp;
-
-      document.querySelector(".revive").style.visibility = "hidden";
-      document.querySelector(".healthNumber").textContent = myHealth;
-      document.querySelector(".healthBar").style.width = myHealth + "%";
-      if (enemyHealth > 0) {
-        document.querySelector(".enemyHealthNumber").textContent = enemyHealth;
-        document.querySelector(".enemyHealthBar").style.width =
-          enemyHealth + "%";
-      } else {
-        document.querySelector(".enemyNo").textContent = enemyNo++;
-        enemyHealth = enemyNo;
-        enemyAttack = enemyNo / (defence + armor);
-        gold = gold + enemyNo;
-        document.querySelector(".gold").textContent = gold;
-      }
-    } else {
-      document.querySelector(".revive").style.visibility = "visible";
-      if (enemyNo > 5) {
-        document.querySelector(".revive5").style.visibility = "visible";
-      }
-      if (enemyNo > 10) {
-        document.querySelector(".revive10").style.visibility = "visible";
-      }
-    }
-    console.log(enemyAttack);
-  }, 1000);
-}
-
-//next enemy button
-
-//Start Fight Button
-document.querySelector(".fight").addEventListener("click", function () {
-  setInterval(function enemyAttacks() {
-    enemyHealth -= myAttack;
-  }, 3000);
-  document.querySelector(".enemyHealthNumber").textContent = enemyHealth;
-  document.querySelector(".fight").style.visibility = "hidden";
-  setInterval(function enemyAttacks() {
-    myHealth -= enemyAttack;
-  }, 3000);
-});
-
 //revive button
-
 document.querySelector(".revive").addEventListener("click", function () {
   myHealth = healthLevel;
-  enemyNo = 0;
-  document.querySelector(".enemyNo").textContent = enemyNo;
-  document.querySelector(".gold").textContent = gold;
-});
-document.querySelector(".revive5").addEventListener("click", function () {
-  myHealth = healthLevel;
-  enemyNo = 5;
-  document.querySelector(".enemyNo").textContent = enemyNo;
-  document.querySelector(".gold").textContent = gold;
-  document.querySelector(".revive5").style.visibility = "hidden";
-});
-document.querySelector(".revive10").addEventListener("click", function () {
-  myHealth = healthLevel;
-  enemyNo = 10;
-  document.querySelector(".enemyNo").textContent = enemyNo;
-  document.querySelector(".gold").textContent = gold;
-  document.querySelector(".revive10").style.visibility = "hidden";
+  document.querySelector(".healthNumber").textContent = myHealth;
+  document.querySelector(".healthBar").style.width = myHealth + "%";
+  document.querySelector(".revive").style.visibility = "hidden";
+  document.querySelector(".fightChicken").style.visibility = "visible";
+  document.querySelector(".fightBear").style.visibility = "visible";
+  document.querySelector(".collectGold").style.visibility = "hidden";
+  attackSpeed = 1;
+  chickenSpeed = 1;
+  bearSpeed = 1;
+
+  myAttack = strength * 2.5 + damage + bonus;
+
+  console.log(chickenSpeed);
+  console.log(bearSpeed);
 });
 
+let chickenHealth = 5;
+let chickenSpeed = 0;
+let chickenAttack = 1;
+//fight chicken button
+document.querySelector(".fightChicken").addEventListener("click", function () {
+  attackSpeed = hitSpeed;
+  chickenSpeed = hitSpeed;
+  document.querySelector(".fightChicken").style.visibility = "hidden";
+  document.querySelector(".fightBear").style.visibility = "hidden";
+  setInterval(function updateMyGame() {
+    if (chickenHealth > 0 && myHealth > 0 && chickenSpeed > 0) {
+      chickenHealth -= myAttack;
+
+      console.log(chickenSpeed);
+      console.log(bearSpeed);
+      // document.querySelector(".enemyHitbox").textContent = myAttack;
+      if (chickenHealth < 0) {
+        chickenHealth = 0;
+      }
+      document.querySelector(".enemyHealthNumber").textContent = chickenHealth;
+      document.querySelector(".enemyHealthBar").style.width =
+        chickenHealth + "%";
+      myHealth -= chickenAttack;
+      // document.querySelector(".playerHitbox").textContent = chickenAttack;
+      document.querySelector(".healthNumber").textContent = myHealth;
+      document.querySelector(".healthBar").style.width = myHealth + "%";
+      document.querySelector(".enemyName").textContent = "Chicken";
+      xp += 4;
+      document.querySelector(".xp").textContent = xp;
+      defenceXp += 4;
+      document.querySelector(".defenceXp").textContent = defenceXp;
+      healthXp += 4;
+      document.querySelector(".healthXp").textContent = healthXp;
+    } else if (chickenHealth <= 0 && myHealth > 0) {
+      chickenHealth = 5;
+      document.querySelector(".enemyHealthNumber").textContent = chickenHealth;
+      lootGold += 1;
+      document.querySelector(".lootGold").textContent = lootGold;
+    } else if (myHealth <= 0) {
+      document.querySelector(".revive").style.visibility = "visible";
+      document.querySelector(".collectGold").style.visibility = "visible";
+    }
+  }, chickenSpeed);
+});
+
+let bearSpeed = 0;
+let bearHealth = 10;
+let bearAttack = 10;
+//fight Bear button
+document.querySelector(".fightBear").addEventListener("click", function () {
+  attackSpeed = hitSpeed;
+  bearSpeed = hitSpeed;
+  document.querySelector(".fightBear").style.visibility = "hidden";
+  document.querySelector(".fightChicken").style.visibility = "hidden";
+  setInterval(function updateMyGame() {
+    if (bearHealth > 0 && myHealth > 0 && bearSpeed > 0) {
+      bearHealth -= myAttack;
+      // document.querySelector(".enemyHitbox").textContent = myAttack;
+      if (bearHealth < 0) {
+        bearHealth = 0;
+      }
+      document.querySelector(".enemyHealthNumber").textContent = bearHealth;
+      document.querySelector(".enemyHealthBar").style.width = bearHealth + "%";
+      myHealth -= bearAttack;
+      // document.querySelector(".playerHitbox").textContent = bearAttack;
+      document.querySelector(".healthNumber").textContent = myHealth;
+      document.querySelector(".healthBar").style.width = myHealth + "%";
+      document.querySelector(".enemyName").textContent = "Bear";
+
+      xp += 4;
+      document.querySelector(".xp").textContent = xp;
+      defenceXp += 4;
+      document.querySelector(".defenceXp").textContent = defenceXp;
+      healthXp += 4;
+      document.querySelector(".healthXp").textContent = healthXp;
+    } else if (bearHealth <= 0 && myHealth > 0) {
+      bearHealth = 5;
+      document.querySelector(".enemyHealthNumber").textContent = bearHealth;
+      lootGold += 10;
+      document.querySelector(".lootGold").textContent = lootGold;
+    } else if (myHealth <= 0) {
+      document.querySelector(".revive").style.visibility = "visible";
+      document.querySelector(".collectGold").style.visibility = "visible";
+    }
+  }, bearSpeed);
+});
+
+//collect gold loot
+document.querySelector(".collectGold").addEventListener("click", function () {
+  gold = gold += lootGold;
+  lootGold = 0;
+  document.querySelector(".gold").textContent = gold;
+  document.querySelector(".lootGold").textContent = lootGold;
+});
 //shop
-
 document
   .querySelector(".shopBronzeDagger")
   .addEventListener("click", function () {
@@ -191,43 +226,41 @@ document.querySelector(".abyssalLeach").addEventListener("click", function () {
   }
 });
 
-//enemy list
-const enemyList = [
-  "rat",
-  "chicken",
-  "Gnome Child",
-  "Imp",
-  "FireBird",
-  "Goblin",
-  "Giant Spider",
-  "Man",
-  "Mugger",
-  "DarkWizard",
-  "Goblin",
-  "HighwayMan",
-  "Monk",
-  "Farmer",
-  "Barbarian",
-  "Slave",
-  "Wizard",
-  "Dwarf",
-  "Thug",
-  "Skeleton",
-  "Zombie",
-  "Cult Member",
-  "Rogue",
-  "Scorpion",
-  "Skeleton Mage",
-  "Thief",
-  "Unicorn",
-  "dungeon Spider",
-  "Bear",
-];
+//   //enemy list
+//   const enemyList = [
+//     "rat",
+//     "chicken",
+//     "Gnome Child",
+//     "Imp",
+//     "FireBird",
+//     "Goblin",
+//     "Giant Spider",
+//     "Man",
+//     "Mugger",
+//     "DarkWizard",
+//     "Goblin",
+//     "HighwayMan",
+//     "Monk",
+//     "Farmer",
+//     "Barbarian",
+//     "Slave",
+//     "Wizard",
+//     "Dwarf",
+//     "Thug",
+//     "Skeleton",
+//     "Zombie",
+//     "Cult Member",
+//     "Rogue",
+//     "Scorpion",
+//     "Skeleton Mage",
+//     "Thief",
+//     "Unicorn",
+//     "dungeon Spider",
+//     "Bear",
+//   ];
 
-const enemyName = (document.querySelector(".enemyName").textContent =
-  enemyList[enemyNo]);
-
-//enemy loot
+//   const enemyName = (document.querySelector(".enemyName").textContent =
+//     enemyList[enemyNo]);
 
 //strength leveling system
 setInterval(function updatexp() {

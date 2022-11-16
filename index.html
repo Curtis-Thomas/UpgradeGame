@@ -22,6 +22,7 @@
 
           <p class="healthBar"></p>
         </div>
+        <p class="playerHitBox">#</p>
       </div>
       <div class="bodyright">
         <div class="enemybox">
@@ -30,16 +31,20 @@
           <h3 class="enemyNo">0</h3>
           <div class="enemyHealthNumberContainer">
             <h3>Enemy Health</h3>
-            <h4 class="enemyHealthNumber">1</h4>
+            <h4 class="enemyHealthNumber">*</h4>
           </div>
           <p class="enemyHealthBar"></p>
         </div>
+        <p class="enemyHitBox">#</p>
       </div>
     </div>
     <div class="statsbar">
       <div class="lootcontainer">
         <h2>Loot</h2>
-        <button class="loot1">Loot</button>
+        <h3>Gold</h3>
+        <p class="lootGold">0</p>
+        <button class="collectGold">Collect Gold</button>
+        <!-- <button class="loot1">Loot</button> -->
       </div>
     </div>
 
@@ -47,13 +52,13 @@
       <div class="actionbox">
         <h2>Actionbox</h2>
 
-        <button class="fight">Fight</button>
-        <button class="revive">Revive</button>
-        <button class="revive5">Revive Lvl 5</button>
-        <button class="revive10">Revive Lvl 10</button>
+        <!-- <button class="fight">Fight</button> -->
 
-        <p>Gold</p>
-        <p class="gold">0</p>
+        <button class="revive">Revive</button>
+        <div class="fightMonsters">
+          <button class="fightChicken">Fight Chicken</button>
+          <button class="fightBear">Fight Bear</button>
+        </div>
       </div>
       <div class="equipmentbox">
         <h2>Stats</h2>
@@ -63,6 +68,8 @@
           <div class="weaponbox">
             <h3>weapon</h3>
             <h3 class="damage">1</h3>
+            <h3>Hit Speed</h3>
+            <p class="hitSpeed">#</p>
             <h3>Armor</h3>
             <h3 class="armor">0</h3>
 
@@ -87,7 +94,11 @@
         </div>
       </div>
       <div class="shopbox">
-        <h2>Shop</h2>
+        <div class="shopMyGold">
+          <h2>Shop</h2>
+          <p>My Gold</p>
+          <p class="gold">0</p>
+        </div>
         <div class="shopButtons">
           <p>100 gold</p>
           <button class="shopBronzeDagger">Bronze Dagger</button>

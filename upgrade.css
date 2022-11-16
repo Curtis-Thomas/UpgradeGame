@@ -51,7 +51,6 @@ html {
 
 .statsbar {
   background-color: rgba(0, 0, 255, 0.363);
-  height: 75px;
 }
 
 .bodybottom {
@@ -82,11 +81,23 @@ html {
 }
 .shopbox {
   background-color: blanchedalmond;
-  height: 50px;
+
   width: 33.33%;
 }
 
+.shopMyGold {
+  background-color: greenyellow;
+}
+
 .revive {
+  visibility: hidden;
+}
+
+.fightMonsters button {
+  margin-top: 10px;
+}
+
+.collectGold {
   visibility: hidden;
 }
 
