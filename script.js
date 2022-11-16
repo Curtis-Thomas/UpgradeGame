@@ -47,9 +47,6 @@ if (myHealth >= 0) {
       document.querySelector(".revive").style.visibility = "hidden";
       document.querySelector(".healthNumber").textContent = myHealth;
       document.querySelector(".healthBar").style.width = myHealth + "%";
-      const enemyName = (document.querySelector(".enemyName").textContent =
-        enemyList[enemyNo]);
-
       if (enemyHealth > 0) {
         document.querySelector(".enemyHealthNumber").textContent = enemyHealth;
         document.querySelector(".enemyHealthBar").style.width =
@@ -226,6 +223,9 @@ const enemyList = [
   "dungeon Spider",
   "Bear",
 ];
+
+const enemyName = (document.querySelector(".enemyName").textContent =
+  enemyList[enemyNo]);
 
 //enemy loot
 
