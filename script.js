@@ -24,6 +24,7 @@ let defence = 1;
 let defenceXp = 1;
 let myAttack = 1;
 let bones = 0;
+let bearFur = 0;
 let gold = 0;
 let enemyHealth = 1;
 let enemyAttack = 0;
@@ -77,6 +78,11 @@ document.querySelector(".fight").addEventListener("click", function () {
       document.querySelector(".defenceXp").textContent = defenceXp;
       healthXp += 4;
       document.querySelector(".healthXp").textContent = healthXp;
+      document.querySelector(".goldUpdater").textContent = "";
+      document.querySelector(".bonesUpdater").textContent = "0";
+      document.querySelector(".bonesUpdater").style.visibility = "hidden";
+      document.querySelector(".bearFurUpdater").textContent = "0";
+      document.querySelector(".bearFurUpdater").style.visibility = "hidden";
     } else if (enemyHealth <= 0 && myHealth > 0) {
       enemyHealth = enemyMaxHealth;
       document.querySelector(".enemyHealthNumber").textContent = enemyHealth;
@@ -98,10 +104,20 @@ document.querySelector(".fight").addEventListener("click", function () {
 
       if (result === "gold") {
         gold += goldDrop;
+        document.querySelector(".goldUpdater").textContent = "+" + goldDrop;
         document.querySelector(".gold").textContent = gold;
       } else if (result === "bones") {
         bones += 1;
         document.querySelector(".bones").textContent = bones;
+
+        document.querySelector(".bonesUpdater").textContent = "+ 1";
+        document.querySelector(".bonesUpdater").style.visibility = "visible";
+      } else if (result === "bearFur") {
+        bearFur += 1;
+        document.querySelector(".bearFur").textContent = bearFur;
+
+        document.querySelector(".bearFurUpdater").textContent = "+ 1";
+        document.querySelector(".bearFurUpdater").style.visibility = "visible";
       }
     } else if (myHealth <= 0) {
       document.querySelector(".revive").style.visibility = "visible";
@@ -139,8 +155,24 @@ document.querySelector(".fightBear").addEventListener("click", function () {
   enemyMaxHealth = bearMaxHealth;
   goldDrop = bearGold;
   enemyName = "Bear";
+  lootTable = bearLoot;
 
-  document.querySelector(".enemyName").textContent = "bear";
+  document.querySelector(".enemyName").textContent = "Bear";
+  document.querySelector(".enemyHealthNumber").textContent = enemyHealth;
+  document.querySelector(".enemyHealthBar").style.width = enemyHealth + "%";
+});
+
+let bearLoot = ["gold", "bones", "bearFur"];
+document.querySelector(".fightBear").addEventListener("click", function () {
+  enemyHealth = bearHealth;
+  enemyAttack = bearAttack;
+  enemyMaxHealth = bearMaxHealth;
+  goldDrop = bearGold;
+  enemyName = "Bear";
+  lootTable = bearLoot;
+
+  document.querySelector(".enemyName").textContent = "Chicken";
+
   document.querySelector(".enemyHealthNumber").textContent = enemyHealth;
   document.querySelector(".enemyHealthBar").style.width = enemyHealth + "%";
 });
@@ -158,7 +190,7 @@ document
     goldDrop = barbarianGold;
     enemyName = "Barbarian";
 
-    document.querySelector(".enemyName").textContent = "bear";
+    document.querySelector(".enemyName").textContent = "Barbarian";
     document.querySelector(".enemyHealthNumber").textContent = enemyHealth;
     document.querySelector(".enemyHealthBar").style.width = enemyHealth + "%";
   });
@@ -234,12 +266,24 @@ document
     }
   });
 //shop sell
+
+//sell bones
 document.querySelector(".sellBones").addEventListener("click", function () {
   if (bones >= 1) {
     gold += bones;
     bones = 0;
     document.querySelector(".gold").textContent = gold;
     document.querySelector(".bones").textContent = bones;
+  }
+});
+
+//sell bear fur
+document.querySelector(".sellBearFur").addEventListener("click", function () {
+  if (bearFur >= 1) {
+    gold += bearFur;
+    bearFur = 0;
+    document.querySelector(".gold").textContent = gold;
+    document.querySelector(".bearFur").textContent = bearFur;
   }
 });
 //   //enemy list

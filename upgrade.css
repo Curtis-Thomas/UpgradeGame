@@ -150,11 +150,13 @@ h5 {
 .shopbox {
   background-color: #1d1d1d;
   box-shadow: inset 0 0 10px #1d1d1d;
+  padding: 10px;
 
   width: 33.33%;
 }
 
 .shopMyGold {
+  width: 40%;
   border: 1px solid #1d1d1d;
   background-color: #2c2c2c;
   box-shadow: inset 0 0 10px #1d1d1d;
@@ -220,6 +222,7 @@ button {
   text-align: center;
 }
 .shopButtons {
+  margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
   text-align: center;
@@ -289,6 +292,7 @@ button {
 }
 .lootcontainer {
   text-align: center;
+  width: 60%;
   padding-top: 10px;
 }
 .lootcontainer p {
@@ -299,6 +303,7 @@ button {
 .lootItems {
   display: flex;
   padding: 10px;
+  text-align: center;
 }
 
 .actionHeading {
@@ -306,16 +311,18 @@ button {
   border: 1px solid #1d1d1d;
   background-color: #2c2c2c;
   box-shadow: inset 0 0 10px #242424;
+  margin-bottom: 10px;
 }
 .statsHeader {
   padding: 1px;
   box-shadow: inset 0 0 10px #383838;
+  margin-bottom: 10px;
 }
 .myShop-Gold {
-  display: flex;
+  display: block;
+
   padding-left: 20%;
   padding-right: 20%;
-  justify-content: space-between;
 }
 
 .fightMonsters p {
@@ -325,4 +332,29 @@ button {
 
 .attackDamageContainer {
   display: flex;
+}
+.lootBearFur {
+  margin-left: 10px;
+}
+
+.loot_header {
+  display: flex;
+}
+
+.shopHeading {
+  padding: 20px;
+  border: 1px solid #1d1d1d;
+  background-color: #2c2c2c;
+  box-shadow: inset 0 0 10px #242424;
+}
+
+.goldUpdate {
+  display: flex;
+  justify-content: space-between;
+}
+.bonesUpdater {
+  visibility: hidden;
+}
+.bearFurUpdater {
+  visibility: hidden;
 }
