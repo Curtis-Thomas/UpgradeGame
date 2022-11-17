@@ -233,7 +233,15 @@ document
       document.querySelector(".shopSteelArmor").style.visibility = "hidden";
     }
   });
-
+//shop sell
+document.querySelector(".sellBones").addEventListener("click", function () {
+  if (bones >= 1) {
+    gold += bones;
+    bones = 0;
+    document.querySelector(".gold").textContent = gold;
+    document.querySelector(".bones").textContent = bones;
+  }
+});
 //   //enemy list
 //   const enemyList = [
 //     "rat",
