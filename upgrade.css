@@ -1,374 +1,116 @@
 html {
-  padding-left: 15%;
-  padding-right: 15%;
-  background-color: #0f0f0f;
+  padding-left: 20%;
+  padding-right: 20%;
+  background-color: #111111;
   color: white;
 }
 
-body {
-  border: solid 1px rgb(110, 109, 109);
-}
-
 h2,
-h3,
-h4,
-h5 {
-  font-size: 0.9rem;
+h3 {
   text-align: center;
 }
 
-.bodytop {
+body {
+  border: 1px solid #353535;
+}
+
+.top {
   display: flex;
+  text-align: center;
 }
 
-.bodyleft {
-  width: 50%;
-  border-left: 1px solid #0f0f0f;
-  border-top: 1px solid #0f0f0f;
-  border-bottom: 1px solid #0f0f0f;
-  background-color: rgba(68, 21, 21, 0.582);
+.topleft {
   display: flex;
-}
-
-.characterbox {
-  background-color: rgba(26, 6, 6, 0.582);
-  padding-bottom: 10px;
-  width: 50%;
-}
-
-.playerImage {
-  transform: scaleX(-1);
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  border: 1px solid black;
-}
-.enemyImage {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  border: 1px solid black;
-}
-
-.healthNumberContainer {
-  display: flex;
-  justify-content: space-evenly;
-}
-.characterbox p {
-  background-color: red;
-  min-height: 30px;
-  width: 10%;
-  margin-left: 10px;
-
-  border: solid 1px black;
-}
-.bodyright {
-  width: 50%;
-  border: 1px solid #0f0f0f;
-  background-color: rgb(48, 6, 6);
-}
-.enemybox {
-  background-color: rgba(61, 42, 165, 0.582);
-  width: 50%;
-  padding-bottom: 10px;
-}
-.enemyHealthNumberContainer {
-  display: flex;
-  justify-content: space-evenly;
-}
-.enemybox p {
-  background-color: red;
-  min-height: 30px;
-  width: 1%;
-  margin-left: 10px;
-
-  border: solid 1px black;
-}
-
-.statsbar {
-  background-color: rgb(48, 6, 6);
-}
-
-.bodybottom {
-  display: flex;
-}
-
-.actionbox {
-  background-color: #1d1d1d;
-  padding: 1px;
-  box-shadow: inset 0 0 10px #1d1d1d;
-  width: 33.33%;
-}
-
-.statsbox {
-  width: 33.33%;
-
-  box-shadow: inset 0 0 10px #1d1d1d;
-}
-
-.defenceBox {
-  display: flex;
-  justify-content: space-between;
-  padding-left: 10%;
-  padding-right: 10%;
-  box-shadow: inset 0 0 10px #1d1d1d;
-}
-.strengthBox {
-  display: flex;
-  justify-content: space-between;
-  padding-left: 10%;
-  padding-right: 10%;
-  border-left: solid 1px #3d3d3d;
-  border-right: solid 1px #3d3d3d;
-  border-bottom: solid 1px #3d3d3d;
-  box-shadow: inset 0 0 10px #1d1d1d;
-}
-.defenceBox {
-  display: flex;
-  justify-content: space-between;
-  padding-left: 10%;
-  padding-right: 10%;
-  border: solid 1px #3d3d3d;
-  box-shadow: inset 0 0 10px #1d1d1d;
-}
-.healthBox {
-  display: flex;
-  justify-content: space-between;
-  padding-left: 10%;
-  padding-right: 10%;
-  border-left: solid 1px #3d3d3d;
-  border-right: solid 1px #3d3d3d;
-  border-bottom: solid 1px #3d3d3d;
-  box-shadow: inset 0 0 10px #1d1d1d;
-}
-.armorbox {
-  width: 33%;
-}
-.shieldbox {
-  width: 33%;
-}
-.shopbox {
-  background-color: #1d1d1d;
-  box-shadow: inset 0 0 10px #1d1d1d;
-  padding: 1px;
-
-  width: 33.33%;
-}
-
-.shopMyGold {
   width: 40%;
-  border: 1px solid #1d1d1d;
-  background-color: #2c2c2c;
-  box-shadow: inset 0 0 10px #1d1d1d;
-  padding: 1px;
-  margin-bottom: 10px;
 }
 
+.playerbox {
+  width: 100%;
+}
+
+.enemybox {
+  width: 100%;
+}
+
+.topright {
+  width: 40%;
+}
+
+.lootbox {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.lootDropBox {
+  visibility: hidden;
+  background: rgb(146, 111, 21);
+}
+.instructions {
+  width: 20%;
+}
+
+.instructions h2 {
+  font-size: 1rem;
+}
+.instructions p {
+  font-size: 0.8rem;
+}
+.bottom {
+  display: flex;
+  background-color: #1d1d1d;
+}
+.bottomleft {
+  width: 25%;
+}
 .revive {
   visibility: hidden;
 }
 
-.shopButtons button {
-  display: block;
-  margin-left: 5px;
-  margin-top: 5px;
-}
-
-@media only screen and (max-width: 600px) {
-  html {
-    padding-left: 0%;
-    padding-right: 0%;
-  }
-
-  h3 {
-    font-size: 0.75rem;
-  }
-}
-
-.autoFightBox button {
+.enemybox button {
   display: block;
 }
 
-.fight_revive_container {
-  display: flex;
+.bottommiddle {
+  width: 25%;
 }
 
-button {
-  display: block;
-  width: 70px;
-  height: 40px;
-  margin-bottom: 10px;
-}
-
-.drop {
-  background-color: rgb(126, 108, 10);
-}
-.weapon_armor {
-  display: flex;
-  justify-content: space-between;
-  padding-left: 10%;
-  padding-right: 10%;
-  border: solid 1px #3d3d3d;
-  box-shadow: inset 0 0 10px #1d1d1d;
-}
-.hitSpeedContainer {
-  display: flex;
-  justify-content: space-between;
-  padding-left: 10%;
-  padding-right: 10%;
-  border-left: solid 1px #3d3d3d;
-  border-right: solid 1px #3d3d3d;
-  border-bottom: solid 1px #3d3d3d;
-  box-shadow: inset 0 0 10px #1d1d1d;
-}
-
-.shopMyGold {
-  text-align: center;
-}
-.shopButtons {
-  margin-top: 10px;
+.levelsbox {
   display: flex;
   flex-wrap: wrap;
-  text-align: center;
-  justify-content: space-evenly;
+  font-size: 0.8rem;
 }
-.daggershop {
-  border: 1px solid #3d3d3d;
-}
-.bronzeDagger button {
-  box-shadow: inset 0 0 10px #ac6b2a;
-  background-color: #553515;
-}
-.ironDagger button {
-  box-shadow: inset 0 0 10px #6f737e;
-  background-color: #4a4e55;
-}
-.steelDagger button {
-  box-shadow: inset 0 0 10px #808181;
-  background-color: #858586;
-}
-.armorShop {
-  border: 1px solid #3d3d3d;
-}
-.shopBronzeArmor {
-  box-shadow: inset 0 0 10px #ac6b2a;
-  background-color: #553515;
-}
-.shopIronArmor {
-  box-shadow: inset 0 0 10px #6f737e;
-  background-color: #4a4e55;
-}
-.shopSteelArmor {
-  box-shadow: inset 0 0 10px #808181;
-  background-color: #858586;
-}
-
-.shopButtons button {
-  text-decoration: none;
-  display: inline-block;
-}
-.statsbox {
-  text-align: center;
-  background-color: #222222;
-  color: white;
-}
-.equipment {
-  text-align: center;
-}
-
-.attackDamage {
-  display: flex;
+.defencebox {
   width: 50%;
-
-  justify-content: space-evenly;
-  box-shadow: inset 0 0 30px #962929;
-
-  background-color: #2c0c0c;
 }
-.enemyAttackDamage {
-  display: flex;
-  justify-content: space-evenly;
+.strengthbox {
   width: 50%;
-
-  text-align: center;
-  box-shadow: inset 0 0 30px #962929;
-  background-color: #2c0c0c;
 }
-.lootcontainer {
-  text-align: center;
-  width: 60%;
-  padding-top: 10px;
-}
-.lootcontainer p {
-  margin-left: 33.3%;
-  margin-right: 33.3%;
+.healthbox {
+  width: 50%;
 }
 
-.lootItems {
-  display: flex;
-  padding: 10px;
-  text-align: center;
-}
-
-.actionHeading {
-  border: 1px solid #1d1d1d;
-  background-color: #2c2c2c;
-  box-shadow: inset 0 0 10px #242424;
-  margin-bottom: 10px;
-}
-.statsHeader {
-  padding: 1px;
-  box-shadow: inset 0 0 10px #383838;
-  margin-bottom: 10px;
-}
-.myShop-Gold {
-  display: block;
-
-  padding-left: 20%;
-  padding-right: 20%;
-}
-
-.fightMonsters p {
-  font-size: 1rem;
-  text-align: center;
-}
-
-.attackDamageContainer {
-  display: flex;
-}
-.lootBearFur {
-  margin-left: 10px;
-}
-
-.loot_header {
-  display: flex;
-}
-
-.shopHeading {
-  border: 1px solid #1d1d1d;
-  background-color: #2c2c2c;
-  box-shadow: inset 0 0 10px #242424;
-}
-
-.goldUpdate {
-  display: flex;
-  justify-content: space-between;
-}
-.bonesUpdater {
-  visibility: hidden;
-}
-.bearFurUpdater {
-  visibility: hidden;
-}
-
-/* .statscontainer {
+.equipmentbox {
   display: flex;
   flex-wrap: wrap;
-} */
-
-.defenceBox {
+}
+.weaponbox {
   width: 50%;
 }
-.strengthBox {
-  width: 35%;
+.armorbox {
+  width: 50%;
+}
+
+.bottomright {
+  width: 25%;
+}
+
+.bottomright button {
+  display: block;
+}
+.bottomright2 {
+  width: 25%;
+}
+
+.bottomright2 button {
+  display: block;
 }

@@ -1,91 +1,186 @@
 "use-strict";
 
-let lootTable = 1;
-let enemyName = "#";
-let enemyMaxHealth = "#";
-//attack speed (rotation seconds)
-let attackSpeed = 1500;
-let hitSpeed = 1300;
-let strength = 1;
-document.querySelector(".strength").textContent = strength;
-let xp = 1;
-document.querySelector(".xp").textContent = xp;
-//main weapon damage
-let damage = 1;
-document.querySelector(".damage").textContent = damage;
-//armour and jewlery bonuses
-let bonus = 1;
-
-let myHealth = 10;
-let healthLevel = 10;
-let healthXp = 1350;
-let armor = 1;
+//gamespeed
+let gameSpeed = 3000;
+//player stats
 let defence = 1;
-let defenceXp = 1;
-let myAttack = 1;
-let bones = 0;
-let bearFur = 0;
+let defenceXp = 0;
+let strength = 1;
+let strengthXp = 0;
+let health = 10;
+let healthXp = 0;
+let healthLevel = 10;
+let playerDamage = 1;
+
+//player gold
 let gold = 0;
-let enemyHealth = 1;
-let enemyAttack = 0;
-let enemyNo = 1;
+//loot
+let bones = 0;
+let treasure = 0;
 
-let lootGold = 500;
-let cmbLvl = healthLevel + defence + strength / 3;
+//player equipment
+let weapon = 0;
+let armor = 0;
 
-//revive button
-document.querySelector(".revive").addEventListener("click", function () {
-  myHealth = healthLevel;
-  myAttack = strength + damage;
-  document.querySelector(".healthNumber").textContent = myHealth;
-  document.querySelector(".healthBar").style.width = myHealth + "%";
-  document.querySelector(".revive").style.visibility = "hidden";
-  document.querySelector(".startTip").style.visibility = "hidden";
+//enemydetails placeholdler
+let enemyName = "enemy";
+let enemyMaxHealth = "0";
+let enemyHealthNumber = "0";
+let enemyDamage = "0";
+
+//damage modifiers
+
+//updates UI values with variables
+const updateUI = () => {
+  //Updates players CURRENT health
+  document.querySelector(".healthNumber").textContent = health;
+  //Update later - players health in %
+  // document.querySelector(".playerHealthPercent").style = #;
+  //updates player damage
+  playerDamage = strength + weapon;
+  document.querySelector(".playerDamage").textContent = playerDamage;
+  //updates player damage
+
+  //updates player gold
+  document.querySelector(".gold").textContent = gold;
+  document.querySelector(".bones").textContent = bones;
+
+  //updates defence level
+  document.querySelector(".defenceLevel").textContent = defence;
+  //updates strength level
+  document.querySelector(".strengthLevel").textContent = strength;
+  //updates health level
+  document.querySelector(".healthLevel").textContent = healthLevel;
+  //updates weapon damage
+  document.querySelector(".weapon").textContent = weapon;
+  //updates armour amount
+  document.querySelector(".armor").textContent = armor;
+  //updates player damage
+
+  //updates XP
+  document.querySelector(".defenceXp").textContent = defenceXp;
+  document.querySelector(".strengthXp").textContent = strengthXp;
+  document.querySelector(".healthXp").textContent = healthXp;
+
+  //updates enemy stats
+  document.querySelector(".enemyName").textContent = enemyName;
+  document.querySelector(".enemyHealthNumber").textContent = enemyHealthNumber;
+  document.querySelector(".enemyDamage").textContent = enemyDamage;
+};
+
+updateUI();
+//enemy update
+//updates enemy name
+
+//Enemies
+
+//chicken
+
+const chickenName = "Chicken";
+const chickenMaxHealth = 10;
+let chickenHealth = 10;
+let chickenDamage = 1;
+
+//chicken loot
+const chickenLoot = ["gold", "bones"];
+
+//select chicken button
+
+document.querySelector(".enemyChicken").addEventListener("click", function () {
+  //sets enemy stats
+  enemyName = chickenName;
+  enemyHealthNumber = chickenHealth;
+  enemyDamage = chickenDamage;
+  enemyMaxHealth = chickenMaxHealth;
+  lootTable = chickenLoot;
+
+  //updates enemy stats UI
+
+  updateUI();
 });
 
-//fight button, starts attacks
-document.querySelector(".fight").addEventListener("click", function () {
-  attackSpeed = hitSpeed;
-  enemySpeed = hitSpeed;
-  document.querySelector(".fight").style.visibility = "hidden";
-  setInterval(function updateMyGame() {
-    if (enemyHealth > 0 && myHealth > 0) {
-      if (myHealth > healthLevel) {
-        myHealth = healthLevel;
-      }
-      console.log(defence);
-      console.log(armor);
-      enemyHealth -= myAttack;
-      document.querySelector(".enemyHitBox").textContent =
-        enemyAttack - (defence + armor) * 0.5;
-      document.querySelector(".playerHitBox").textContent = myAttack;
-      if (enemyHealth < 0) {
-        enemyHealth = 0;
-      }
-      document.querySelector(".enemyHealthNumber").textContent = enemyHealth;
-      document.querySelector(".enemyHealthBar").style.width = enemyHealth + "%";
+//Bear
 
-      myHealth -= enemyAttack - (defence + armor) * 0.5;
-      if ((defence + armor) * 0.5 > enemyAttack) {
-        enemyAttack = (defence + armor) * 0.5 + 1;
-      }
-      document.querySelector(".healthNumber").textContent = myHealth;
-      document.querySelector(".healthBar").style.width = myHealth + "%";
-      document.querySelector(".enemyName").textContent = enemyName;
-      xp += 4;
-      document.querySelector(".xp").textContent = xp;
+//bear loot
+const bearLoot = ["gold", "bones", "bearFur"];
+
+const bearName = "Bear";
+const bearMaxHealth = 50;
+let bearHealth = 50;
+let bearDamage = 5;
+
+//select bear button
+
+document.querySelector(".enemyBear").addEventListener("click", function () {
+  //sets enemy stats
+  enemyName = bearName;
+  enemyHealthNumber = bearHealth;
+  enemyDamage = bearDamage;
+  enemyMaxHealth = bearMaxHealth;
+  lootTable = bearLoot;
+
+  //updates enemy stats UI
+
+  updateUI();
+});
+
+//Barbarian
+
+//bear loot
+const barbarianLoot = ["gold", "bones", "treasure"];
+
+const barbarianName = "Barbarian";
+const barbarianMaxHealth = 100;
+let barbarianHealth = 100;
+let barbarianDamage = 10;
+//select Barbarian button
+
+document
+  .querySelector(".enemyBarbarian")
+  .addEventListener("click", function () {
+    //sets enemy stats
+    enemyName = barbarianName;
+    enemyHealthNumber = barbarianHealth;
+    enemyDamage = barbarianDamage;
+    enemyMaxHealth = barbarianMaxHealth;
+    lootTable = barbarianLoot;
+
+    //updates enemy stats UI
+
+    updateUI();
+  });
+
+//attack function
+attack = function () {
+  enemyHealthNumber -= playerDamage;
+  health -= enemyDamage;
+  if (health < 0) {
+    health = 0;
+  }
+  if (enemyHealthNumber < 0) {
+    enemyHealthNumber = 0;
+  }
+};
+
+//fight loop
+document.querySelector(".fight").addEventListener("click", function () {
+  //hide fight button
+  document.querySelector(".fight").style.visibility = "hidden";
+  setInterval(function (fightLoop) {
+    if (health > 0 && enemyHealthNumber > 0) {
+      attack();
       defenceXp += 4;
-      document.querySelector(".defenceXp").textContent = defenceXp;
+      strengthXp += 4;
       healthXp += 4;
-      document.querySelector(".healthXp").textContent = healthXp;
-      document.querySelector(".goldUpdater").textContent = "";
-      document.querySelector(".bonesUpdater").textContent = "0";
-      document.querySelector(".bonesUpdater").style.visibility = "hidden";
-      document.querySelector(".bearFurUpdater").textContent = "0";
-      document.querySelector(".bearFurUpdater").style.visibility = "hidden";
-    } else if (enemyHealth <= 0 && myHealth > 0) {
-      enemyHealth = enemyMaxHealth;
-      document.querySelector(".enemyHealthNumber").textContent = enemyHealth;
+
+      updateUI();
+      document.querySelector(".lootDropBox").style.visibility = "hidden";
+      console.log(health);
+      console.log(enemyHealthNumber);
+    } else if (health > 0 && enemyHealthNumber <= 0) {
+      enemyHealthNumber = enemyMaxHealth;
+
+      //roll for random item from enemy loot table
 
       function getRandomItem(arr) {
         // get random index value
@@ -96,261 +191,65 @@ document.querySelector(".fight").addEventListener("click", function () {
 
         return item;
       }
-
-      const array = [1, "hello", 5, 8];
-
-      const result = getRandomItem(lootTable);
-      document.querySelector(".drop").textContent = result;
-
-      if (result === "gold") {
-        gold += goldDrop;
-        document.querySelector(".goldUpdater").textContent = "+" + goldDrop;
-        document.querySelector(".gold").textContent = gold;
-      } else if (result === "bones") {
+      let lootTable = chickenLoot;
+      const loot = getRandomItem(lootTable);
+      console.log(loot);
+      //adds loot drop to player
+      if (loot === "gold") {
+        gold += 1;
+      } else if (loot === "bones") {
         bones += 1;
-        document.querySelector(".bones").textContent = bones;
-
-        document.querySelector(".bonesUpdater").textContent = "+ 1";
-        document.querySelector(".bonesUpdater").style.visibility = "visible";
-      } else if (result === "bearFur") {
-        bearFur += 1;
-        document.querySelector(".bearFur").textContent = bearFur;
-
-        document.querySelector(".bearFurUpdater").textContent = "+ 1";
-        document.querySelector(".bearFurUpdater").style.visibility = "visible";
+      } else if (loot === "treasure") {
+        treasure += 1;
       }
-    } else if (myHealth <= 0) {
+      document.querySelector(".lootDropBox").textContent = loot;
+
+      document.querySelector(".lootDropBox").style.visibility = "visible";
+
+      updateUI;
+    } else if (health <= 0) {
       document.querySelector(".revive").style.visibility = "visible";
     }
-  }, attackSpeed);
+  }, gameSpeed);
+});
+//revive button
+
+document.querySelector(".revive").addEventListener("click", function () {
+  document.querySelector(".revive").style.visibility = "hidden";
+  health = healthLevel;
+  updateUI;
 });
 
-const chickenMaxHealth = 5;
-let chickenHealth = 5;
-let chickenAttack = 3;
-let chickenGold = 1;
+//level strengthXp chart
 
-let chickenLoot = ["gold", "bones"];
-document.querySelector(".fightChicken").addEventListener("click", function () {
-  enemyHealth = chickenHealth;
-  enemyAttack = chickenAttack;
-  enemyMaxHealth = chickenMaxHealth;
-  goldDrop = chickenGold;
-  enemyName = "Chicken";
-  lootTable = chickenLoot;
-
-  document.querySelector(".enemyName").textContent = "Chicken";
-
-  document.querySelector(".enemyHealthNumber").textContent = enemyHealth;
-  document.querySelector(".enemyHealthBar").style.width = enemyHealth + "%";
-});
-
-const bearMaxHealth = 20;
-let bearHealth = 20;
-let bearAttack = 22;
-let bearGold = 5;
-document.querySelector(".fightBear").addEventListener("click", function () {
-  enemyHealth = bearHealth;
-  enemyAttack = bearAttack;
-  enemyMaxHealth = bearMaxHealth;
-  goldDrop = bearGold;
-  enemyName = "Bear";
-  lootTable = bearLoot;
-
-  document.querySelector(".enemyName").textContent = "Bear";
-  document.querySelector(".enemyHealthNumber").textContent = enemyHealth;
-  document.querySelector(".enemyHealthBar").style.width = enemyHealth + "%";
-});
-
-let bearLoot = ["gold", "bones", "bearFur"];
-document.querySelector(".fightBear").addEventListener("click", function () {
-  enemyHealth = bearHealth;
-  enemyAttack = bearAttack;
-  enemyMaxHealth = bearMaxHealth;
-  goldDrop = bearGold;
-  enemyName = "Bear";
-  lootTable = bearLoot;
-
-  document.querySelector(".enemyName").textContent = "Chicken";
-
-  document.querySelector(".enemyHealthNumber").textContent = enemyHealth;
-  document.querySelector(".enemyHealthBar").style.width = enemyHealth + "%";
-});
-
-const barbarianMaxHealth = 100;
-let barbarianHealth = 100;
-let barbarianAttack = 100;
-let barbarianGold = 20;
-document
-  .querySelector(".fightBarbarian")
-  .addEventListener("click", function () {
-    enemyHealth = barbarianHealth;
-    enemyAttack = barbarianAttack;
-    enemyMaxHealth = barbarianMaxHealth;
-    goldDrop = barbarianGold;
-    enemyName = "Barbarian";
-
-    document.querySelector(".enemyName").textContent = "Barbarian";
-    document.querySelector(".enemyHealthNumber").textContent = enemyHealth;
-    document.querySelector(".enemyHealthBar").style.width = enemyHealth + "%";
-  });
-
-//shop
-document
-  .querySelector(".shopBronzeDagger")
-  .addEventListener("click", function () {
-    if (gold >= 10) {
-      gold -= 10;
-      damage = 48;
-      document.querySelector(".gold").textContent = gold;
-      document.querySelector(".damage").textContent = damage;
-      document.querySelector(".shopBronzeDagger").style.visibility = "hidden";
-    }
-  });
-
-document
-  .querySelector(".shopIronDagger")
-  .addEventListener("click", function () {
-    if (gold >= 10) {
-      gold -= 100;
-      damage = 96;
-      document.querySelector(".gold").textContent = gold;
-      document.querySelector(".damage").textContent = damage;
-      document.querySelector(".shopIronDagger").style.visibility = "hidden";
-    }
-  });
-
-document
-  .querySelector(".shopSteelDagger")
-  .addEventListener("click", function () {
-    if (gold >= 500) {
-      gold -= 10;
-      damage = 192;
-      document.querySelector(".gold").textContent = gold;
-      document.querySelector(".damage").textContent = damage;
-      document.querySelector(".shopSteelDagger").style.visibility = "hidden";
-    }
-  });
-
-document
-  .querySelector(".shopBronzeArmor")
-  .addEventListener("click", function () {
-    if (gold >= 100) {
-      gold -= 100;
-      armor += 32;
-      document.querySelector(".gold").textContent = gold;
-      document.querySelector(".armor").textContent = armor;
-      document.querySelector(".shopBronzeArmor").style.visibility = "hidden";
-    }
-  });
-
-document.querySelector(".shopIronArmor").addEventListener("click", function () {
-  if (gold >= 100) {
-    gold -= 1000;
-    armor += 71;
-    document.querySelector(".gold").textContent = gold;
-    document.querySelector(".armor").textContent = armor;
-    document.querySelector(".shopIronArmor").style.visibility = "hidden";
-  }
-});
-
-document
-  .querySelector(".shopSteelArmor")
-  .addEventListener("click", function () {
-    if (gold >= 5000) {
-      gold -= 100;
-      armor += 192;
-      document.querySelector(".gold").textContent = gold;
-      document.querySelector(".armor").textContent = armor;
-      document.querySelector(".shopSteelArmor").style.visibility = "hidden";
-    }
-  });
-//shop sell
-
-//sell bones
-document.querySelector(".sellBones").addEventListener("click", function () {
-  if (bones >= 1) {
-    gold += bones;
-    bones = 0;
-    document.querySelector(".gold").textContent = gold;
-    document.querySelector(".bones").textContent = bones;
-  }
-});
-
-//sell bear fur
-document.querySelector(".sellBearFur").addEventListener("click", function () {
-  if (bearFur >= 1) {
-    gold += bearFur;
-    bearFur = 0;
-    document.querySelector(".gold").textContent = gold;
-    document.querySelector(".bearFur").textContent = bearFur;
-  }
-});
-//   //enemy list
-//   const enemyList = [
-//     "rat",
-//     "chicken",
-//     "Gnome Child",
-//     "Imp",
-//     "FireBird",
-//     "Goblin",
-//     "Giant Spider",
-//     "Man",
-//     "Mugger",
-//     "DarkWizard",
-//     "Goblin",
-//     "HighwayMan",
-//     "Monk",
-//     "Farmer",
-//     "Barbarian",
-//     "Slave",
-//     "Wizard",
-//     "Dwarf",
-//     "Thug",
-//     "Skeleton",
-//     "Zombie",
-//     "Cult Member",
-//     "Rogue",
-//     "Scorpion",
-//     "Skeleton Mage",
-//     "Thief",
-//     "Unicorn",
-//     "dungeon Spider",
-//     "Bear",
-//   ];
-
-//   const enemyName = (document.querySelector(".enemyName").textContent =
-//     enemyList[enemyNo]);
-
-//strength leveling system
 setInterval(function updatexp() {
-  if (xp > 83 && xp < 174) {
+  if (strengthXp > 83 && strengthXp < 174) {
     strength = 2;
-    document.querySelector(".strength").textContent = strength;
-  } else if (xp > 174 && xp < 276) {
+    document.querySelector(".strengthLevel").textContent = strength;
+  } else if (strengthXp > 174 && strengthXp < 276) {
     strength = 3;
-    document.querySelector(".strength").textContent = strength;
-  } else if (xp > 276 && xp < 388) {
+    document.querySelector(".strengthLevel").textContent = strength;
+  } else if (strengthXp > 276 && strengthXp < 388) {
     strength = 4;
-    document.querySelector(".strength").textContent = strength;
-  } else if (xp > 388 && xp < 512) {
+    document.querySelector(".strengthLevel").textContent = strength;
+  } else if (strengthXp > 388 && strengthXp < 512) {
     strength = 5;
-    document.querySelector(".strength").textContent = strength;
-  } else if (xp > 512 && xp < 650) {
+    document.querySelector(".strengthLevel").textContent = strength;
+  } else if (strengthXp > 512 && strengthXp < 650) {
     strength = 6;
-    document.querySelector(".strength").textContent = strength;
-  } else if (xp > 650 && xp < 801) {
+    document.querySelector(".strengthLevel").textContent = strength;
+  } else if (strengthXp > 650 && strengthXp < 801) {
     strength = 7;
-    document.querySelector(".strength").textContent = strength;
-  } else if (xp > 801 && xp < 969) {
+    document.querySelector(".strengthLevel").textContent = strength;
+  } else if (strengthXp > 801 && strengthXp < 969) {
     strength = 8;
-    document.querySelector(".strength").textContent = strength;
-  } else if (xp > 969 && xp < 1154) {
+    document.querySelector(".strengthLevel").textContent = strength;
+  } else if (strengthXp > 969 && strengthXp < 1154) {
     strength = 9;
-    document.querySelector(".strength").textContent = strength;
-  } else if (xp > 1154 && xp < 1358) {
+    document.querySelector(".strengthLevel").textContent = strength;
+  } else if (strengthXp > 1154 && strengthXp < 1358) {
     strength = 10;
-    document.querySelector(".strength").textContent = strength;
+    document.querySelector(".strengthLevel").textContent = strength;
   }
 }, 1000);
 
@@ -358,31 +257,31 @@ setInterval(function updatexp() {
 setInterval(function updatexp() {
   if (defenceXp > 83 && defenceXp < 174) {
     defence = 2;
-    document.querySelector(".defence").textContent = defence;
+    document.querySelector(".defenceLevel").textContent = defence;
   } else if (defenceXp > 174 && defenceXp < 276) {
     defence = 3;
-    document.querySelector(".defence").textContent = defence;
+    document.querySelector(".defenceLevel").textContent = defence;
   } else if (defenceXp > 276 && defenceXp < 388) {
     defence = 4;
-    document.querySelector(".defence").textContent = defence;
+    document.querySelector(".defenceLevel").textContent = defence;
   } else if (defenceXp > 388 && defenceXp < 512) {
     defence = 5;
-    document.querySelector(".defence").textContent = defence;
+    document.querySelector(".defenceLevel").textContent = defence;
   } else if (defenceXp > 512 && defenceXp < 650) {
     defence = 6;
-    document.querySelector(".defence").textContent = defence;
+    document.querySelector(".defenceLevel").textContent = defence;
   } else if (defenceXp > 650 && defenceXp < 801) {
     defence = 7;
-    document.querySelector(".defence").textContent = defence;
+    document.querySelector(".defenceLevel").textContent = defence;
   } else if (defenceXp > 801 && defenceXp < 969) {
     defence = 8;
-    document.querySelector(".defence").textContent = defence;
+    document.querySelector(".defenceLevel").textContent = defence;
   } else if (defenceXp > 969 && defenceXp < 1154) {
     defence = 9;
-    document.querySelector(".defence").textContent = defence;
+    document.querySelector(".defenceLevel").textContent = defence;
   } else if (defenceXp > 1154 && defenceXp < 1358) {
     defence = 10;
-    document.querySelector(".defence").textContent = defence;
+    document.querySelector(".defenceLevel").textContent = defence;
   }
 }, 1000);
 
