@@ -23,8 +23,8 @@ let treasure = 0;
 let goldDrop = 0;
 
 //player equipment
-let weapon = 10;
-let armor = 10;
+let weapon = 0;
+let armor = 0;
 
 //enemydetails placeholdler
 let enemyName = "enemy";
