@@ -178,11 +178,6 @@ document
 //attack function
 attack = function () {
   enemyHealthNumber -= playerDamage;
-  if (defence + armor >= enemyDamage) {
-    enemyDamage = 1;
-  } else {
-    enemyDamage = defence + armor;
-  }
   health -= enemyDamage;
   if (defence + armor >= enemyDamage) {
     enemyDamage = 1;
