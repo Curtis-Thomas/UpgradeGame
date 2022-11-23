@@ -8,7 +8,7 @@ let defenceXp = 0;
 let strength = 1;
 let strengthXp = 0;
 let health = 10;
-let healthXp = 0;
+let healthXp = 1154;
 let healthLevel = 10;
 let playerDamage = 1;
 
@@ -16,11 +16,15 @@ let playerDamage = 1;
 let gold = 0;
 //loot
 let bones = 0;
+let bearFur = 0;
 let treasure = 0;
 
+//golddrop is 100% drop ammount from enemy
+let goldDrop = 0;
+
 //player equipment
-let weapon = 0;
-let armor = 0;
+let weapon = 10;
+let armor = 10;
 
 //enemydetails placeholdler
 let enemyName = "enemy";
@@ -28,6 +32,12 @@ let enemyMaxHealth = "0";
 let enemyHealthNumber = "0";
 let enemyDamage = "0";
 
+//info box default
+const infoRefresh = () => {
+  document.querySelector(".infobox").textContent =
+    "Choose enemy (start with chicken), Pressing fight will start the auto combat. If your health reaches 0 you will die. If you die, press revive. Gain stat levels and equipment to defeats harder enemies.";
+  document.querySelector(".infobox").style.color = "white";
+};
 //damage modifiers
 
 //updates UI values with variables
@@ -41,9 +51,17 @@ const updateUI = () => {
   document.querySelector(".playerDamage").textContent = playerDamage;
   //updates player damage
 
-  //updates player gold
+  //updates player gold and loot
   document.querySelector(".gold").textContent = gold;
+  //updates loot screen
   document.querySelector(".bones").textContent = bones;
+  document.querySelector(".bearFur").textContent = bearFur;
+  document.querySelector(".treasure").textContent = treasure;
+  //updates main screen
+  document.querySelector(".gold1").textContent = gold;
+  document.querySelector(".bones1").textContent = bones;
+  document.querySelector(".bearFur1").textContent = bearFur;
+  document.querySelector(".treasure1").textContent = treasure;
 
   //updates defence level
   document.querySelector(".defenceLevel").textContent = defence;
@@ -69,6 +87,7 @@ const updateUI = () => {
 };
 
 updateUI();
+
 //enemy update
 //updates enemy name
 
@@ -80,6 +99,7 @@ const chickenName = "Chicken";
 const chickenMaxHealth = 10;
 let chickenHealth = 10;
 let chickenDamage = 1;
+let chickenGoldDrop = 0;
 
 //chicken loot
 const chickenLoot = ["gold", "bones"];
@@ -93,6 +113,7 @@ document.querySelector(".enemyChicken").addEventListener("click", function () {
   enemyDamage = chickenDamage;
   enemyMaxHealth = chickenMaxHealth;
   lootTable = chickenLoot;
+  goldDrop = chickenGoldDrop;
 
   //updates enemy stats UI
 
@@ -107,7 +128,8 @@ const bearLoot = ["gold", "bones", "bearFur"];
 const bearName = "Bear";
 const bearMaxHealth = 50;
 let bearHealth = 50;
-let bearDamage = 5;
+let bearDamage = 20;
+let bearGoldDrop = 5;
 
 //select bear button
 
@@ -118,6 +140,7 @@ document.querySelector(".enemyBear").addEventListener("click", function () {
   enemyDamage = bearDamage;
   enemyMaxHealth = bearMaxHealth;
   lootTable = bearLoot;
+  goldDrop = bearGoldDrop;
 
   //updates enemy stats UI
 
@@ -132,7 +155,8 @@ const barbarianLoot = ["gold", "bones", "treasure"];
 const barbarianName = "Barbarian";
 const barbarianMaxHealth = 100;
 let barbarianHealth = 100;
-let barbarianDamage = 10;
+let barbarianDamage = 200;
+let barbarianGoldDrop = 50;
 //select Barbarian button
 
 document
@@ -144,6 +168,7 @@ document
     enemyDamage = barbarianDamage;
     enemyMaxHealth = barbarianMaxHealth;
     lootTable = barbarianLoot;
+    goldDrop = barbarianGoldDrop;
 
     //updates enemy stats UI
 
@@ -153,7 +178,15 @@ document
 //attack function
 attack = function () {
   enemyHealthNumber -= playerDamage;
+  if (defence + armor >= enemyDamage) {
+    enemyDamage = 1;
+  } else {
+    enemyDamage = defence + armor;
+  }
   health -= enemyDamage;
+  if (defence + armor >= enemyDamage) {
+    enemyDamage = 1;
+  }
   if (health < 0) {
     health = 0;
   }
@@ -164,60 +197,165 @@ attack = function () {
 
 //fight loop
 document.querySelector(".fight").addEventListener("click", function () {
-  //hide fight button
-  document.querySelector(".fight").style.visibility = "hidden";
-  setInterval(function (fightLoop) {
-    if (health > 0 && enemyHealthNumber > 0) {
-      attack();
-      defenceXp += 4;
-      strengthXp += 4;
-      healthXp += 4;
+  if (enemyName !== "enemy") {
+    //hide fight button
+    document.querySelector(".fight").style.visibility = "hidden";
+    setInterval(function (fightLoop) {
+      if (health > 0 && enemyHealthNumber > 0) {
+        attack();
+        document.querySelector(".enemyhealth").style.backgroundColor =
+          "rgb(110, 12, 12)";
+        setTimeout(function () {
+          document.querySelector(".enemyhealth").style.backgroundColor =
+            "#111111";
+        }, 600);
+        document.querySelector(".playerhealth").style.backgroundColor =
+          "rgb(110, 12, 12)";
+        setTimeout(function () {
+          document.querySelector(".playerhealth").style.backgroundColor =
+            "#111111";
+        }, 600);
+        defenceXp += 4;
+        strengthXp += 4;
+        healthXp += 4;
 
-      updateUI();
-      document.querySelector(".lootDropBox").style.visibility = "hidden";
-      console.log(health);
-      console.log(enemyHealthNumber);
-    } else if (health > 0 && enemyHealthNumber <= 0) {
-      enemyHealthNumber = enemyMaxHealth;
+        updateUI();
 
-      //roll for random item from enemy loot table
+        console.log(health);
+        console.log(enemyHealthNumber);
+      } else if (health > 0 && enemyHealthNumber <= 0) {
+        enemyHealthNumber = enemyMaxHealth;
+        gold += goldDrop;
 
-      function getRandomItem(arr) {
-        // get random index value
-        const randomIndex = Math.floor(Math.random() * arr.length);
+        //roll for random item from enemy loot table
 
-        // get random item
-        const item = arr[randomIndex];
+        function getRandomItem(arr) {
+          // get random index value
+          const randomIndex = Math.floor(Math.random() * arr.length);
 
-        return item;
+          // get random item
+          const item = arr[randomIndex];
+
+          return item;
+        }
+        let lootTable = chickenLoot;
+        const loot = getRandomItem(lootTable);
+        console.log(loot);
+        //adds loot drop to player
+        if (loot === "gold") {
+          gold += 1;
+        } else if (loot === "bones") {
+          bones += 1;
+        } else if (loot === "treasure") {
+          treasure += 1;
+        }
+
+        updateUI;
+      } else if (health <= 0) {
+        document.querySelector(".container-popup").style.display = "block";
+        document.querySelector(".revive").style.visibility = "visible";
       }
-      let lootTable = chickenLoot;
-      const loot = getRandomItem(lootTable);
-      console.log(loot);
-      //adds loot drop to player
-      if (loot === "gold") {
-        gold += 1;
-      } else if (loot === "bones") {
-        bones += 1;
-      } else if (loot === "treasure") {
-        treasure += 1;
-      }
-      document.querySelector(".lootDropBox").textContent = loot;
-
-      document.querySelector(".lootDropBox").style.visibility = "visible";
-
-      updateUI;
-    } else if (health <= 0) {
-      document.querySelector(".revive").style.visibility = "visible";
-    }
-  }, gameSpeed);
+    }, gameSpeed);
+  } else {
+    document.querySelector(".infobox").textContent = "CHOOSE ENEMY";
+    document.querySelector(".infobox").style.color = "red";
+    setTimeout(function () {
+      infoRefresh();
+    }, 3000);
+  }
 });
 //revive button
 
 document.querySelector(".revive").addEventListener("click", function () {
   document.querySelector(".revive").style.visibility = "hidden";
   health = healthLevel;
+  document.querySelector(".container-popup").style.display = "none";
   updateUI;
+});
+
+//loot pop up controls
+
+//sell loot button
+document.querySelector(".sellLoot").addEventListener("click", function () {
+  gold += bones;
+  bones = 0;
+  gold += bearFur;
+  bearFur = 0;
+  gold += treasure;
+  treasure = 0;
+  updateUI();
+});
+
+//buy dagger
+
+//bronze dagger
+document.querySelector(".bronzeDagger").addEventListener("click", function () {
+  if (gold >= 25) {
+    gold -= 25;
+    weapon = 2;
+    document.querySelector(".weaponname").textContent = "Bronze Dagger";
+    document.querySelector(".bronzeDagger").style.visibility = "hidden";
+    updateUI();
+  }
+});
+//iron dagger
+document.querySelector(".ironDagger").addEventListener("click", function () {
+  if (gold >= 100) {
+    gold -= 100;
+    weapon = 5;
+    document.querySelector(".weaponname").textContent = "Iron Dagger";
+    document.querySelector(".bronzeDagger").style.visibility = "hidden";
+    document.querySelector(".ironDagger").style.visibility = "hidden";
+    updateUI();
+  }
+});
+//Steel Dagger
+document.querySelector(".steelDagger").addEventListener("click", function () {
+  if (gold >= 500) {
+    gold -= 500;
+    weapon = 10;
+    document.querySelector(".weaponname").textContent = "steel Dagger";
+    document.querySelector(".bronzeDagger").style.visibility = "hidden";
+    document.querySelector(".ironDagger").style.visibility = "hidden";
+    document.querySelector(".steelDagger").style.visibility = "hidden";
+    updateUI();
+  }
+});
+
+//buy armor
+
+//bronze armor
+document.querySelector(".bronzeArmor").addEventListener("click", function () {
+  if (gold >= 25) {
+    gold -= 25;
+    armor = 1;
+    document.querySelector(".armorname").textContent = "Bronze Armor";
+    document.querySelector(".bronzeArmor").style.visibility = "hidden";
+    updateUI();
+  }
+});
+//iron Armor
+document.querySelector(".ironArmor").addEventListener("click", function () {
+  if (gold >= 100) {
+    gold -= 100;
+    armor = 2;
+    document.querySelector(".armorname").textContent = "Iron Armor";
+    document.querySelector(".bronzeArmor").style.visibility = "hidden";
+    document.querySelector(".ironArmor").style.visibility = "hidden";
+    updateUI();
+  }
+});
+//Steel Armor
+document.querySelector(".steelArmor").addEventListener("click", function () {
+  if (gold >= 500) {
+    gold -= 500;
+    armor = 3;
+    document.querySelector(".armorname").textContent = "steel Armor";
+    document.querySelector(".bronzeArmor").style.visibility = "hidden";
+    document.querySelector(".ironArmor").style.visibility = "hidden";
+    document.querySelector(".steelArmor").style.visibility = "hidden";
+    updateUI();
+  }
 });
 
 //level strengthXp chart

@@ -10,16 +10,84 @@
   </head>
   <body>
     <main>
+      <div class="container-popup">
+        <div class="popup">
+          <h2>Loot</h2>
+          <div class="lootbox">
+            <div class="lootbones">
+              <p>Bones</p>
+              <p class="bones">0</p>
+            </div>
+            <div class="lootBearFur">
+              <p>Bear Fur</p>
+              <p class="bearFur">0</p>
+            </div>
+            <div class="lootTreasure">
+              <p>Treasure</p>
+              <p class="treasure">0</p>
+            </div>
+          </div>
+          <div class="collectlootbox">
+            <button class="sellLoot">Sell Loot</button>
+            <button class="revive">Revive</button>
+          </div>
+          <div class="upgrades">
+            <h3>Upgrades</h3>
+            <h2>Gold</h2>
+            <p class="gold">0</p>
+
+            <div class="upgradesdagger">
+              <h3>Dagger</h3>
+              <div class="upgradesdaggerbox">
+                <div class="bronzeDaggerBox">
+                  <button class="bronzeDagger">Bronze</button>
+                  <p>Cost: 25 Gold</p>
+                  <p>Damage: 2</p>
+                </div>
+                <div class="ironDaggerBox">
+                  <button class="ironDagger">Iron</button>
+                  <p>Cost: 100 Gold</p>
+                  <p>Damage: 5</p>
+                </div>
+                <div class="steelDaggerBox">
+                  <button class="steelDagger">Steel</button>
+                  <p>Cost: 500 Gold</p>
+                  <p>Damage: 10</p>
+                </div>
+              </div>
+            </div>
+            <div class="upgradesarmor">
+              <h3>Armor</h3>
+              <div class="upgradeArmorBox">
+                <div class="bronzeArmorBox">
+                  <button class="bronzeArmor">Bronze</button>
+                  <p>Cost: 25 Gold</p>
+                  <p>armor: 1</p>
+                </div>
+                <div class="ironArmorBox">
+                  <button class="ironArmor">Iron</button>
+                  <p>Cost: 100 Gold</p>
+                  <p>armor: 2</p>
+                </div>
+                <div class="steelArmorBox">
+                  <button class="steelArmor">Steel</button>
+                  <p>Cost: 500 Gold</p>
+                  <p>armor: 3</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="top">
         <div class="topleft">
           <div class="playerbox">
             <h2>Player</h2>
             <p>Bob</p>
-            <div class="pleyerhealth">
+            <div class="playerhealth">
               <p>Health</p>
               <p class="healthNumber">#</p>
             </div>
-            <p class="playerHealthPercent">#</p>
             <div class="damagebox">
               <p>Player Damage</p>
               <p class="playerDamage">#</p>
@@ -32,7 +100,6 @@
               <p>Health</p>
               <p class="enemyHealthNumber">#</p>
             </div>
-            <p class="enemyHealthPercent">#</p>
             <div class="damagebox">
               <p>Enemy Damage</p>
               <p class="enemyDamage">#</p>
@@ -42,37 +109,35 @@
         <div class="topright">
           <div class="toprighttop">
             <h2>Gold</h2>
-            <p class="gold">#</p>
-          </div>
-          <div class="toprightmiddle">
+            <p class="gold1">0</p>
             <h2>Loot</h2>
             <div class="lootbox">
               <div class="lootbones">
                 <p>Bones</p>
-                <p class="bones">0</p>
+                <p class="bones1">0</p>
               </div>
-              <div class="loottreasure">
+              <div class="lootBearFur">
+                <p>Bear Fur</p>
+                <p class="bearFur1">0</p>
+              </div>
+              <div class="lootTreasure">
                 <p>Treasure</p>
-                <p class="treasure">0</p>
+                <p class="treasure1">0</p>
               </div>
-              <p>loot3</p>
             </div>
           </div>
-          <div class="toprightbottom">
-            <h2>Loot Drop</h2>
-            <div class="lootdrop">
-              <p class="lootDropBox">#</p>
-            </div>
-          </div>
+          <div class="toprightmiddle"></div>
+          <div class="toprightbottom"></div>
         </div>
         <div class="instructions">
           <h2>Info</h2>
           <div class="infobox">
-            <p>1. Choose enemy (start with chicken).</p>
-            <p>2. Pressing fight will start the auto combat.</p>
-            <p>3. If your health reaches 0 you will die.</p>
-            <p>4. If you die, press revive.</p>
-            <p>4. Gain stat levels and equipment to defeats harder enemies.</p>
+            <p>
+              Choose enemy (start with chicken), Pressing fight will start the
+              auto combat. If your health reaches 0 you will die. If you die,
+              press revive. Gain stat levels and equipment to defeats harder
+              enemies.
+            </p>
           </div>
         </div>
       </div>
@@ -83,13 +148,15 @@
           </div>
           <div class="bottomleftbox1">
             <button class="fight">FIGHT</button>
-            <button class="revive">Revive</button>
           </div>
           <div class="bottomleftbox2">
             <h3>Enemy</h3>
             <div class="enemybox">
+              <p>(10 HP 1 Damage)</p>
               <button class="enemyChicken">Chicken</button>
+              <p>(50 HP 5 Damage)</p>
               <button class="enemyBear">Bear</button>
+              <p>(100 HP 10 Damage)</p>
               <button class="enemyBarbarian">Barbarian</button>
             </div>
           </div>
@@ -100,7 +167,6 @@
             <h2>Stats</h2>
           </div>
           <div class="bottommiddlebox1">
-            <h3>Level</h3>
             <div class="levelsbox">
               <div class="defencebox">
                 <p>Defence</p>
@@ -127,10 +193,12 @@
             <div class="equipmentbox">
               <div class="weaponbox">
                 <p>Weapon</p>
+                <p class="weaponname">#</p>
                 <p class="weapon">#</p>
               </div>
               <div class="armorbox">
                 <p>Armor</p>
+                <p class="armorname">#</p>
                 <p class="armor">#</p>
               </div>
             </div>
@@ -138,37 +206,7 @@
           <div class="bottommiddlebox3"></div>
         </div>
         <div class="bottomright">
-          <div class="bottomrightheader">
-            <h2>Shop</h2>
-          </div>
-          <div class="bottomrightbox1">
-            <h3>Dagger</h3>
-            <button class="bronzeDagger">Bronze</button>
-            <button class="ironDagger">Iron</button>
-            <button class="steelDagger">Steel</button>
-          </div>
-          <div class="bottomrightbox2">
-            <h3>Armor</h3>
-            <button class="bronzeArmor">Bronze</button>
-            <button class="ironArmor">Iron</button>
-            <button class="steelArmor">Steel</button>
-          </div>
           <div class="bottomrightbox3"></div>
-        </div>
-        <div class="bottomright2">
-          <div class="bottomright2header">
-            <h2>Sell</h2>
-            <div class="bottomright2box1">
-              <div class="selllootbox">
-                <div class="lootbox">
-                  <button class="sellLoot1">Loot1</button>
-                  <button class="sellLoot1">Loot1</button>
-                </div>
-              </div>
-            </div>
-            <div class="bottomright2box2"></div>
-            <div class="bottomright2box3"></div>
-          </div>
         </div>
       </div>
     </main>

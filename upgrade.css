@@ -32,8 +32,14 @@ body {
   width: 100%;
 }
 
+.enemyhealth {
+  border-left: 1px solid #111111;
+}
+
 .topright {
   width: 40%;
+  border-left: 1px solid rgb(167, 167, 167);
+  border-right: 1px solid rgb(167, 167, 167);
 }
 
 .lootbox {
@@ -60,10 +66,18 @@ body {
   background-color: #1d1d1d;
 }
 .bottomleft {
-  width: 25%;
+  width: 50%;
+  padding: 20px;
+}
+.bottomleftbox1 {
+  border-bottom: 1px solid black;
+  padding-bottom: 20px;
 }
 .revive {
   visibility: hidden;
+  padding: 40px;
+  background-color: bisque;
+  font-weight: 700;
 }
 
 .enemybox button {
@@ -71,7 +85,9 @@ body {
 }
 
 .bottommiddle {
-  width: 25%;
+  width: 50%;
+  border-left: solid 1px black;
+  padding: 20px;
 }
 
 .levelsbox {
@@ -93,6 +109,10 @@ body {
   display: flex;
   flex-wrap: wrap;
 }
+
+.bottommiddlebox2 {
+  border-top: 1px solid black;
+}
 .weaponbox {
   width: 50%;
 }
@@ -100,17 +120,75 @@ body {
   width: 50%;
 }
 
-.bottomright {
-  width: 25%;
+.collectlootbox {
+  margin-top: 20px;
+}
+.collectlootbox button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
 }
 
-.bottomright button {
-  display: block;
+.upgrades {
+  text-align: center;
 }
-.bottomright2 {
-  width: 25%;
+.upgrades button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
 }
 
-.bottomright2 button {
-  display: block;
+.upgradesdaggerbox {
+  display: flex;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+.bronzeDaggerBox {
+  width: 33.3%;
+}
+.ironDaggerBox {
+  width: 33.3%;
+}
+.steelDaggerBox {
+  width: 33.3%;
+}
+
+.upgradeArmorBox {
+  display: flex;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+.bronzeArmorBox {
+  width: 33.3%;
+}
+.ironArmorBox {
+  width: 33.3%;
+}
+.steelArmorBox {
+  width: 33.3%;
+}
+
+.container-popup {
+  position: relative;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.952);
+  display: none;
+}
+
+.popup {
+  width: 100%;
+  height: 100%;
+  background: #1abcb900;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
 }
