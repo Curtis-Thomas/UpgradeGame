@@ -1,22 +1,23 @@
-html {
+body {
   background-color: #111111;
   color: white;
+  border: 1px solid #353535;
 }
 p {
-  color: #a2aa58;
+  color: #6c7045;
 }
 h2,
-h3 {
+h3,
+h4,
+h5 {
   text-align: center;
-}
-
-body {
-  border: 1px solid #353535;
+  color: #9b4f29;
 }
 
 .top {
   display: flex;
   text-align: center;
+  border: solid 1px #43433c;
 }
 
 .topleft {
@@ -26,55 +27,76 @@ body {
 
 .playerbox {
   width: 100%;
+  padding: 10px;
 }
 .playerboxname {
   text-align: center;
-  border: solid 1px #ffffff;
+  border: solid 1px #43433c;
+  box-shadow: inset 0px 0px 6px 6px #494949;
   width: 100%;
+  background-color: #242424;
+  margin-bottom: 5px;
 }
 .playerhealth {
   text-align: center;
-  border: solid 1px #ffffff;
+  border: solid 1px #43433c;
   width: 100%;
+  background-color: #242424;
+  margin-bottom: 5px;
 }
 .damagebox {
   text-align: center;
-  border: solid 1px #ffffff;
+  border: solid 1px #43433c;
   width: 100%;
+  background-color: #242424;
 }
 
 .enemybox {
   width: 100%;
+  padding: 10px;
 }
 .enemynamebox {
   text-align: center;
-  border: solid 1px #ffffff;
+  border: solid 1px #43433c;
   width: 100%;
+  background-color: #242424;
+  margin-bottom: 5px;
 }
 
 .enemyhealth {
   text-align: center;
-  border: solid 1px #ffffff;
+  border: solid 1px #43433c;
   width: 100%;
+  background-color: #242424;
+  margin-bottom: 5px;
 }
 
 .topright {
   width: 40%;
-  border-left: 1px solid rgb(167, 167, 167);
-  border-right: 1px solid rgb(167, 167, 167);
+
+  border-right: 1px solid rgb(49, 49, 49);
+  border-left: 1px solid rgb(49, 49, 49);
 }
+.toprighttop {
+  padding: 10px;
+}
+
 .goldbox {
   text-align: center;
-  border: solid 1px #7e7e7e;
   width: 100%;
+
+  border: solid 1px #43433c;
+  background-color: #242424;
 }
 
 .lootbox {
   display: flex;
   justify-content: space-evenly;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
-  border: solid 1px #7e7e7e;
-  width: 100%;
+  border: solid 1px #43433c;
+  width: 90%;
   background-color: #242424;
 }
 
@@ -94,14 +116,17 @@ body {
 }
 .bottom {
   display: flex;
-  background-color: #1d1d1d;
+  background-color: #1b1b1b;
+  border-left: solid 1px #43433c;
+  border-bottom: solid 1px #43433c;
+  border-right: solid 1px #43433c;
 }
 .bottomleft {
   width: 50%;
   padding: 20px;
 }
 .bottomleftbox1 {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgb(49, 49, 49);
   padding-bottom: 20px;
 }
 .revive {
@@ -117,7 +142,7 @@ body {
 
 .bottommiddle {
   width: 50%;
-  border-left: solid 1px black;
+  border-left: solid 1px rgb(49, 49, 49);
   padding: 20px;
 }
 
@@ -160,9 +185,8 @@ body {
   flex-wrap: wrap;
   text-align: center;
   justify-content: space-between;
-  border: solid 1px #7e7e7e;
+
   width: 100%;
-  background-color: #111111;
 }
 .equipmentbox p {
   color: #a2aa58;
@@ -174,13 +198,13 @@ body {
 .weaponbox {
   width: 45%;
   text-align: center;
-  border: solid 1px #7e7e7e;
+  border: solid 1px #43433c;
   background-color: #242424;
 }
 .armorbox {
   width: 45%;
   text-align: center;
-  border: solid 1px #7e7e7e;
+  border: solid 1px #43433c;
   background-color: #242424;
 }
 
@@ -258,29 +282,65 @@ body {
 }
 .enemyboxnamecontainer {
   text-align: center;
-  border: solid 1px #ffffff;
+  border: solid 1px #43433c;
   width: 100%;
   margin-top: 20px;
+  background-color: #242424;
+  margin-bottom: 10px;
 }
 .enemyboxstatscontainer {
   display: flex;
   justify-content: center;
 }
 .enemyboxhealthcontainer {
-  border: solid 1px #ffffff;
+  border: solid 1px #43433c;
   width: 45%;
   text-align: center;
+  background-color: #242424;
 }
 .enemyboxdamagecontainer {
-  border: solid 1px #ffffff;
+  border: solid 1px #43433c;
   width: 45%;
   text-align: center;
+  background-color: #242424;
+  margin-left: 10px;
 }
 .enemyboxlootcontainer {
   text-align: center;
   text-align: center;
-  border: solid 1px #ffffff;
+  border: solid 1px #43433c;
   width: 100%;
+  background-color: #242424;
+  margin-top: 10px;
+}
+
+.bottomleftbox1 button {
+  background-color: #1d1d1d00;
+  color: #a2aa58;
+  border: solid 1px #c7d171;
+  border-radius: 5px;
+  padding: 8px;
+}
+.bottomleftbox1 button:hover {
+  background-color: #3b3b3b;
+  color: #c2cc6b;
+  border: solid 1px #d8e278;
+  border-radius: 5px;
+  padding: 8px;
+}
+.enemycontrols button {
+  background-color: #1d1d1d00;
+  color: #a2aa58;
+  border: solid 1px #c7d171;
+  border-radius: 5px;
+  padding: 8px;
+}
+.enemycontrols button:hover {
+  background-color: #3b3b3b;
+  color: #c2cc6b;
+  border: solid 1px #d8e278;
+  border-radius: 5px;
+  padding: 8px;
 }
 
 /* media query for mobile */
