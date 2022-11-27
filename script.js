@@ -1,7 +1,7 @@
 "use-strict";
 
 //gamespeed
-let gameSpeed = 3000;
+let gameSpeed = 1500;
 //player stats
 let defence = 1;
 let defenceXp = 0;
@@ -93,7 +93,7 @@ updateUI();
 
 //Enemies
 
-//chicken
+// //chicken
 
 const chickenName = "Chicken";
 const chickenMaxHealth = 10;
@@ -104,25 +104,25 @@ let chickenGoldDrop = 0;
 //chicken loot
 const chickenLoot = ["gold", "bones"];
 
-//select chicken button
+// //select chicken button
 
-document.querySelector(".enemyChicken").addEventListener("click", function () {
-  //sets enemy stats
-  enemyName = chickenName;
-  enemyHealthNumber = chickenHealth;
-  enemyDamage = chickenDamage;
-  enemyMaxHealth = chickenMaxHealth;
-  lootTable = chickenLoot;
-  goldDrop = chickenGoldDrop;
+// document.querySelector(".enemyChicken").addEventListener("click", function () {
+//   //sets enemy stats
+//   enemyName = chickenName;
+//   enemyHealthNumber = chickenHealth;
+//   enemyDamage = chickenDamage;
+//   enemyMaxHealth = chickenMaxHealth;
+//   lootTable = chickenLoot;
+//   goldDrop = chickenGoldDrop;
 
-  //updates enemy stats UI
+//   //updates enemy stats UI
 
-  updateUI();
-});
+//   updateUI();
+// });
 
-//Bear
+// //Bear
 
-//bear loot
+// //bear loot
 const bearLoot = ["gold", "bones", "bearFur"];
 
 const bearName = "Bear";
@@ -131,25 +131,25 @@ let bearHealth = 50;
 let bearDamage = 20;
 let bearGoldDrop = 5;
 
-//select bear button
+// //select bear button
 
-document.querySelector(".enemyBear").addEventListener("click", function () {
-  //sets enemy stats
-  enemyName = bearName;
-  enemyHealthNumber = bearHealth;
-  enemyDamage = bearDamage;
-  enemyMaxHealth = bearMaxHealth;
-  lootTable = bearLoot;
-  goldDrop = bearGoldDrop;
+// document.querySelector(".enemyBear").addEventListener("click", function () {
+//   //sets enemy stats
+//   enemyName = bearName;
+//   enemyHealthNumber = bearHealth;
+//   enemyDamage = bearDamage;
+//   enemyMaxHealth = bearMaxHealth;
+//   lootTable = bearLoot;
+//   goldDrop = bearGoldDrop;
 
-  //updates enemy stats UI
+//   //updates enemy stats UI
 
-  updateUI();
-});
+//   updateUI();
+// });
 
-//Barbarian
+// //Barbarian
 
-//bear loot
+// //bear loot
 const barbarianLoot = ["gold", "bones", "treasure"];
 
 const barbarianName = "Barbarian";
@@ -157,31 +157,143 @@ const barbarianMaxHealth = 100;
 let barbarianHealth = 100;
 let barbarianDamage = 200;
 let barbarianGoldDrop = 50;
-//select Barbarian button
+// //select Barbarian button
 
-document
-  .querySelector(".enemyBarbarian")
-  .addEventListener("click", function () {
-    //sets enemy stats
+// document
+//   .querySelector(".enemyBarbarian")
+//   .addEventListener("click", function () {
+//     //sets enemy stats
+//     enemyName = barbarianName;
+//     enemyHealthNumber = barbarianHealth;
+//     enemyDamage = barbarianDamage;
+//     enemyMaxHealth = barbarianMaxHealth;
+//     lootTable = barbarianLoot;
+//     goldDrop = barbarianGoldDrop;
+
+//     //updates enemy stats UI
+
+//     updateUI();
+//   });
+
+//current enemy
+let currentEnemy = 0;
+//contains current enemy to defined enemies
+let margin = function () {
+  if (currentEnemy === -1) {
+    currentEnemy = 0;
+  } else if (currentEnemy === 3) {
+    currentEnemy = 2;
+  }
+};
+
+let enemyBoxName, enemyBoxHealth, enemyBoxDamage;
+
+//enemy button selector
+//updates enemy box
+//uCE = update Current Enemy Box
+let uCEB = function () {
+  document.querySelector(".enemyBoxName").textContent = enemyBoxName;
+  document.querySelector(".enemyBoxHealth").textContent = enemyBoxHealth;
+  document.querySelector(".enemyBoxDamage").textContent = enemyBoxDamage;
+};
+
+//next enemy
+document.querySelector(".nextEnemy").addEventListener("click", function () {
+  currentEnemy++;
+  margin();
+  uCEB();
+
+  cE();
+});
+
+//previous enemy
+document.querySelector(".previousEnemy").addEventListener("click", function () {
+  currentEnemy--;
+  margin();
+  uCEB();
+
+  cE();
+});
+
+//cE = current Enemy
+let cE = function () {
+  if (currentEnemy == 0) {
+    //updates enemy box bottom left
+    enemyBoxName = chickenName;
+    enemyBoxHealth = chickenMaxHealth;
+    enemyBoxDamage = chickenDamage;
+    document.querySelector(".enemyBoxName").textContent = enemyBoxName;
+    document.querySelector(".enemyBoxHealth").textContent = enemyBoxHealth;
+    document.querySelector(".enemyBoxDamage").textContent = enemyBoxDamage;
+    document.querySelector(".enemyBoxLoot").textContent = enemyBoxDamage;
+    //updates enemy box top left
+    enemyName = chickenName;
+    enemyHealthNumber = chickenHealth;
+    enemyDamage = chickenDamage;
+    enemyMaxHealth = chickenMaxHealth;
+    lootTable = chickenLoot;
+    document.querySelector(".enemyBoxLoot").textContent = lootTable;
+    goldDrop = chickenGoldDrop;
+
+    //updates enemy stats UI
+
+    updateUI();
+    uCEB();
+  } else if (currentEnemy == 1) {
+    //updates enemy box bottom left
+    enemyBoxName = bearName;
+    enemyBoxHealth = bearMaxHealth;
+    enemyBoxDamage = bearDamage;
+    document.querySelector(".enemyBoxName").textContent = enemyBoxName;
+    document.querySelector(".enemyBoxHealth").textContent = enemyBoxHealth;
+    document.querySelector(".enemyBoxDamage").textContent = enemyBoxDamage;
+    //updates enemy box top left
+    enemyName = bearName;
+    enemyHealthNumber = bearHealth;
+    enemyDamage = bearDamage;
+    enemyMaxHealth = bearMaxHealth;
+    lootTable = bearLoot;
+    document.querySelector(".enemyBoxLoot").textContent = lootTable;
+    goldDrop = bearGoldDrop;
+
+    //updates enemy stats UI
+
+    updateUI();
+    uCEB();
+  } else if ((currentEnemy = 2)) {
+    //updates enemy box bottom left
+    enemyBoxName = barbarianName;
+    enemyBoxHealth = barbarianMaxHealth;
+    enemyBoxDamage = barbarianDamage;
+    document.querySelector(".enemyBoxName").textContent = enemyBoxName;
+    document.querySelector(".enemyBoxHealth").textContent = enemyBoxHealth;
+    document.querySelector(".enemyBoxDamage").textContent = enemyBoxDamage;
+    //updates enemy box top left
     enemyName = barbarianName;
     enemyHealthNumber = barbarianHealth;
     enemyDamage = barbarianDamage;
     enemyMaxHealth = barbarianMaxHealth;
     lootTable = barbarianLoot;
+    document.querySelector(".enemyBoxLoot").textContent = lootTable;
     goldDrop = barbarianGoldDrop;
 
     //updates enemy stats UI
 
     updateUI();
-  });
+    uCEB();
+  }
+};
+
+cE();
 
 //attack function
 attack = function () {
   enemyHealthNumber -= playerDamage;
-  health -= enemyDamage;
+
   if (defence + armor >= enemyDamage) {
     enemyDamage = 1;
   }
+  health -= enemyDamage;
   if (health < 0) {
     health = 0;
   }
@@ -215,9 +327,6 @@ document.querySelector(".fight").addEventListener("click", function () {
         healthXp += 4;
 
         updateUI();
-
-        console.log(health);
-        console.log(enemyHealthNumber);
       } else if (health > 0 && enemyHealthNumber <= 0) {
         enemyHealthNumber = enemyMaxHealth;
         gold += goldDrop;
@@ -235,7 +344,7 @@ document.querySelector(".fight").addEventListener("click", function () {
         }
         let lootTable = chickenLoot;
         const loot = getRandomItem(lootTable);
-        console.log(loot);
+
         //adds loot drop to player
         if (loot === "gold") {
           gold += 1;
@@ -268,6 +377,16 @@ document.querySelector(".revive").addEventListener("click", function () {
   updateUI;
 });
 
+document.querySelector(".reviveChicken").addEventListener("click", function () {
+  document.querySelector(".revive").style.visibility = "hidden";
+  health = healthLevel;
+  currentEnemy = 0;
+  margin();
+  uCEB();
+  cE();
+  document.querySelector(".container-popup").style.display = "none";
+  updateUI;
+});
 //loot pop up controls
 
 //sell loot button
@@ -323,7 +442,7 @@ document.querySelector(".steelDagger").addEventListener("click", function () {
 document.querySelector(".bronzeArmor").addEventListener("click", function () {
   if (gold >= 25) {
     gold -= 25;
-    armor = 1;
+    armor = 5;
     document.querySelector(".armorname").textContent = "Bronze Armor";
     document.querySelector(".bronzeArmor").style.visibility = "hidden";
     updateUI();

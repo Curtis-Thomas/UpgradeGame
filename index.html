@@ -30,6 +30,7 @@
           <div class="collectlootbox">
             <button class="sellLoot">Sell Loot</button>
             <button class="revive">Revive</button>
+            <button class="reviveChicken">Revive - Fight Chicken</button>
           </div>
           <div class="upgrades">
             <h3>Upgrades</h3>
@@ -82,46 +83,52 @@
       <div class="top">
         <div class="topleft">
           <div class="playerbox">
-            <h2>Player</h2>
-            <p>Bob</p>
+            <div class="playerboxname">
+              <h4>Player</h4>
+              <p>Bob</p>
+            </div>
             <div class="playerhealth">
-              <p>Health</p>
+              <h4>Health</h4>
               <p class="healthNumber">#</p>
             </div>
             <div class="damagebox">
-              <p>Player Damage</p>
+              <h4>Player Damage</h4>
               <p class="playerDamage">#</p>
             </div>
           </div>
           <div class="enemybox">
-            <h2>Enemy</h2>
-            <p class="enemyName">#</p>
+            <div class="enemynamebox">
+              <h4>Enemy</h4>
+              <p class="enemyName">#</p>
+            </div>
             <div class="enemyhealth">
-              <p>Health</p>
+              <h4>Health</h4>
               <p class="enemyHealthNumber">#</p>
             </div>
             <div class="damagebox">
-              <p>Enemy Damage</p>
+              <h4>Enemy Damage</h4>
               <p class="enemyDamage">#</p>
             </div>
           </div>
         </div>
         <div class="topright">
           <div class="toprighttop">
-            <h2>Gold</h2>
-            <p class="gold1">0</p>
+            <div class="goldbox">
+              <h2>Gold</h2>
+              <p class="gold1">0</p>
+            </div>
             <h2>Loot</h2>
             <div class="lootbox">
               <div class="lootbones">
-                <p>Bones</p>
+                <h5>Bones</h5>
                 <p class="bones1">0</p>
               </div>
               <div class="lootBearFur">
-                <p>Bear Fur</p>
+                <h5>Bear Fur</h5>
                 <p class="bearFur1">0</p>
               </div>
               <div class="lootTreasure">
-                <p>Treasure</p>
+                <h5>Treasure</h5>
                 <p class="treasure1">0</p>
               </div>
             </div>
@@ -151,13 +158,29 @@
           </div>
           <div class="bottomleftbox2">
             <h3>Enemy</h3>
+            <div class="enemycontrols">
+              <button class="previousEnemy">Previous</button>
+              <button class="nextEnemy">Next</button>
+            </div>
             <div class="enemybox">
-              <p>(10 HP 1 Damage)</p>
-              <button class="enemyChicken">Chicken</button>
-              <p>(50 HP 5 Damage)</p>
-              <button class="enemyBear">Bear</button>
-              <p>(100 HP 10 Damage)</p>
-              <button class="enemyBarbarian">Barbarian</button>
+              <div class="enemyboxnamecontainer">
+                <h4>Name</h4>
+                <p class="enemyBoxName">#</p>
+              </div>
+              <div class="enemyboxstatscontainer">
+                <div class="enemyboxhealthcontainer">
+                  <h4>Health</h4>
+                  <p class="enemyBoxHealth">#</p>
+                </div>
+                <div class="enemyboxdamagecontainer">
+                  <h4>Damage</h4>
+                  <p class="enemyBoxDamage">#</p>
+                </div>
+              </div>
+              <div class="enemyboxlootcontainer">
+                <h4>Loot</h4>
+                <p class="enemyBoxLoot">#</p>
+              </div>
             </div>
           </div>
           <div class="bottomleftbox3"></div>
@@ -169,22 +192,29 @@
           <div class="bottommiddlebox1">
             <div class="levelsbox">
               <div class="defencebox">
-                <p>Defence</p>
+                <h4>Defence</h4>
                 <p class="defenceLevel">#</p>
-                <p>XP</p>
-                <p class="defenceXp">0</p>
+                <div class="xpbox">
+                  <h4>XP</h4>
+                  <p class="defenceXp">0</p>
+                </div>
               </div>
               <div class="strengthbox">
-                <p>Strength</p>
+                <h4>Strength</h4>
                 <p class="strengthLevel">#</p>
-                <p>XP</p>
-                <p class="strengthXp">0</p>
+                <div class="xpbox">
+                  <h4>XP</h4>
+                  <p class="strengthXp">0</p>
+                </div>
               </div>
               <div class="healthbox">
-                <p>Health</p>
+                <h4>Health</h4>
+
                 <p class="healthLevel">#</p>
-                <p>XP</p>
-                <p class="healthXp">0</p>
+                <div class="xpbox">
+                  <h4>XP</h4>
+                  <p class="healthXp">0</p>
+                </div>
               </div>
             </div>
           </div>
@@ -192,12 +222,12 @@
             <h3>Equipment</h3>
             <div class="equipmentbox">
               <div class="weaponbox">
-                <p>Weapon</p>
+                <h4>Weapon</h4>
                 <p class="weaponname">#</p>
                 <p class="weapon">#</p>
               </div>
               <div class="armorbox">
-                <p>Armor</p>
+                <h4>Armor</h4>
                 <p class="armorname">#</p>
                 <p class="armor">#</p>
               </div>

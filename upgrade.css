@@ -2,7 +2,9 @@ html {
   background-color: #111111;
   color: white;
 }
-
+p {
+  color: #a2aa58;
+}
 h2,
 h3 {
   text-align: center;
@@ -25,13 +27,35 @@ body {
 .playerbox {
   width: 100%;
 }
+.playerboxname {
+  text-align: center;
+  border: solid 1px #ffffff;
+  width: 100%;
+}
+.playerhealth {
+  text-align: center;
+  border: solid 1px #ffffff;
+  width: 100%;
+}
+.damagebox {
+  text-align: center;
+  border: solid 1px #ffffff;
+  width: 100%;
+}
 
 .enemybox {
   width: 100%;
 }
+.enemynamebox {
+  text-align: center;
+  border: solid 1px #ffffff;
+  width: 100%;
+}
 
 .enemyhealth {
-  border-left: 1px solid #111111;
+  text-align: center;
+  border: solid 1px #ffffff;
+  width: 100%;
 }
 
 .topright {
@@ -39,10 +63,19 @@ body {
   border-left: 1px solid rgb(167, 167, 167);
   border-right: 1px solid rgb(167, 167, 167);
 }
+.goldbox {
+  text-align: center;
+  border: solid 1px #7e7e7e;
+  width: 100%;
+}
 
 .lootbox {
   display: flex;
   justify-content: space-evenly;
+  text-align: center;
+  border: solid 1px #7e7e7e;
+  width: 100%;
+  background-color: #242424;
 }
 
 .lootDropBox {
@@ -92,30 +125,63 @@ body {
   display: flex;
   flex-wrap: wrap;
   font-size: 0.8rem;
+  justify-content: space-evenly;
 }
+
+.levelsbox p {
+  color: #a2aa58;
+}
+
 .defencebox {
-  width: 50%;
+  width: 30%;
+  border: solid 1px #43433c;
+  text-align: center;
+  background-color: #242424;
 }
 .strengthbox {
-  width: 50%;
+  width: 30%;
+  border: solid 1px #43433c;
+  text-align: center;
+  background-color: #242424;
 }
 .healthbox {
-  width: 50%;
+  width: 30%;
+  border: solid 1px #43433c;
+  text-align: center;
+  background-color: #242424;
+}
+
+.xpbox {
+  border-top: solid 1px #43433c;
 }
 
 .equipmentbox {
   display: flex;
   flex-wrap: wrap;
+  text-align: center;
+  justify-content: space-between;
+  border: solid 1px #7e7e7e;
+  width: 100%;
+  background-color: #111111;
+}
+.equipmentbox p {
+  color: #a2aa58;
 }
 
 .bottommiddlebox2 {
   border-top: 1px solid black;
 }
 .weaponbox {
-  width: 50%;
+  width: 45%;
+  text-align: center;
+  border: solid 1px #7e7e7e;
+  background-color: #242424;
 }
 .armorbox {
-  width: 50%;
+  width: 45%;
+  text-align: center;
+  border: solid 1px #7e7e7e;
+  background-color: #242424;
 }
 
 .collectlootbox {
@@ -189,6 +255,32 @@ body {
   bottom: 0;
   left: 0;
   margin: auto;
+}
+.enemyboxnamecontainer {
+  text-align: center;
+  border: solid 1px #ffffff;
+  width: 100%;
+  margin-top: 20px;
+}
+.enemyboxstatscontainer {
+  display: flex;
+  justify-content: center;
+}
+.enemyboxhealthcontainer {
+  border: solid 1px #ffffff;
+  width: 45%;
+  text-align: center;
+}
+.enemyboxdamagecontainer {
+  border: solid 1px #ffffff;
+  width: 45%;
+  text-align: center;
+}
+.enemyboxlootcontainer {
+  text-align: center;
+  text-align: center;
+  border: solid 1px #ffffff;
+  width: 100%;
 }
 
 /* media query for mobile */
