@@ -88,6 +88,15 @@ h5 {
   border: solid 1px #43433c;
   background-color: #242424;
 }
+.gold {
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
+.gold1 {
+  margin-left: 30%;
+  margin-right: 30%;
+}
 
 .lootbox {
   display: flex;
@@ -228,41 +237,43 @@ h5 {
   margin-top: 20px;
 }
 
-.upgradesdaggerbox {
+.shop-weapon-armor {
   display: flex;
-  padding-left: 15%;
-  padding-right: 15%;
 }
-.bronzeDaggerBox {
-  width: 33.3%;
+.shop-weapon {
+  width: 50%;
+  border: solid 1px #43433c;
+  padding: 10px;
 }
-.ironDaggerBox {
-  width: 33.3%;
+.shop-weapon button {
+  margin-left: 10px;
+  margin-top: 10px;
 }
-.steelDaggerBox {
-  width: 33.3%;
+.shop-armor {
+  width: 50%;
+  border: solid 1px #43433c;
+  padding: 10px;
+}
+.shop-armor button {
+  margin-left: 10px;
+  margin-top: 10px;
 }
 
-.upgradeArmorBox {
-  display: flex;
-  padding-left: 15%;
-  padding-right: 15%;
+.shopbuybutton button {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
-.bronzeArmorBox {
-  width: 33.3%;
-}
-.ironArmorBox {
-  width: 33.3%;
-}
-.steelArmorBox {
-  width: 33.3%;
+
+.btnCloseShop {
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .container-popup {
   position: relative;
   position: fixed;
   top: 0;
-  right: 0;
+  right: 50%;
   bottom: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.952);
@@ -279,6 +290,33 @@ h5 {
   bottom: 0;
   left: 0;
   margin: auto;
+}
+
+.container-popup-shop {
+  position: relative;
+  position: fixed;
+  top: 34%;
+  right: 1%;
+  bottom: 30%;
+  left: 50%;
+  background: rgba(0, 0, 0, 0.952);
+
+  display: none;
+  border: solid 3px rgb(48, 41, 1);
+  padding: 10px;
+}
+
+.popup-shop {
+  width: 90%;
+  height: 100%;
+  background: #1abcb900;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  padding: 10px;
 }
 .enemyboxnamecontainer {
   text-align: center;

@@ -1,7 +1,7 @@
 "use-strict";
 
 //gamespeed
-let gameSpeed = 1500;
+let gameSpeed = 1000;
 //player stats
 let defence = 1;
 let defenceXp = 0;
@@ -96,8 +96,8 @@ updateUI();
 // //chicken
 
 const chickenName = "Chicken";
-const chickenMaxHealth = 10;
-let chickenHealth = 10;
+const chickenMaxHealth = 3;
+let chickenHealth = 3;
 let chickenDamage = 1;
 let chickenGoldDrop = 0;
 
@@ -314,13 +314,13 @@ document.querySelector(".fight").addEventListener("click", function () {
           "rgb(110, 12, 12)";
         setTimeout(function () {
           document.querySelector(".enemyhealth").style.backgroundColor =
-            "#111111";
+            "#242424";
         }, 600);
         document.querySelector(".playerhealth").style.backgroundColor =
           "rgb(110, 12, 12)";
         setTimeout(function () {
           document.querySelector(".playerhealth").style.backgroundColor =
-            "#111111";
+            "#242424";
         }, 600);
         defenceXp += 4;
         strengthXp += 4;
@@ -348,10 +348,37 @@ document.querySelector(".fight").addEventListener("click", function () {
         //adds loot drop to player
         if (loot === "gold") {
           gold += 1;
+          updateUI();
+          document.querySelector(".gold1").style.backgroundColor =
+            "rgb(19, 68, 19)";
+          setTimeout(function () {
+            document.querySelector(".gold1").style.backgroundColor = "#242424";
+          }, 600);
         } else if (loot === "bones") {
           bones += 1;
+          updateUI();
+          document.querySelector(".bones1").style.backgroundColor =
+            "rgb(19, 68, 19)";
+          setTimeout(function () {
+            document.querySelector(".bones1").style.backgroundColor = "#242424";
+          }, 600);
+        } else if (loot === "bearFur") {
+          treasure += 1;
+          updateUI();
+          document.querySelector(".bearFur1").style.backgroundColor =
+            "rgb(19, 68, 19)";
+          setTimeout(function () {
+            document.querySelector(".bearFur1").style.backgroundColor =
+              "#242424";
+          }, 600);
         } else if (loot === "treasure") {
           treasure += 1;
+          document.querySelector(".treasure").style.backgroundColor =
+            "rgb(19, 68, 19)";
+          setTimeout(function () {
+            document.querySelector(".treasure").style.backgroundColor =
+              "#242424";
+          }, 600);
         }
 
         updateUI;
@@ -389,6 +416,14 @@ document.querySelector(".reviveChicken").addEventListener("click", function () {
 });
 //loot pop up controls
 
+//open shop button
+document.querySelector(".btnOpenShop").addEventListener("click", function () {
+  document.querySelector(".container-popup-shop").style.display = "block";
+});
+//close shop button
+document.querySelector(".btnCloseShop").addEventListener("click", function () {
+  document.querySelector(".container-popup-shop").style.display = "none";
+});
 //sell loot button
 document.querySelector(".sellLoot").addEventListener("click", function () {
   gold += bones;
@@ -398,80 +433,183 @@ document.querySelector(".sellLoot").addEventListener("click", function () {
   gold += treasure;
   treasure = 0;
   updateUI();
+  document.querySelector(".gold").style.backgroundColor = "rgb(19, 68, 19)";
+  setTimeout(function () {
+    document.querySelector(".gold").style.backgroundColor = "black";
+  }, 600);
 });
 
-//buy dagger
+let weaponName = 0;
+let weaponCost = 0;
+let weaponDamage = 0;
 
-//bronze dagger
-document.querySelector(".bronzeDagger").addEventListener("click", function () {
-  if (gold >= 25) {
-    gold -= 25;
-    weapon = 2;
-    document.querySelector(".weaponname").textContent = "Bronze Dagger";
-    document.querySelector(".bronzeDagger").style.visibility = "hidden";
-    updateUI();
+let armorName = 0;
+let armorCost = 0;
+let armorArmor = 0;
+
+//keeps weapon and armor in limits
+let shopLimit = function () {
+  if (weaponName === -1) {
+    weaponName = 0;
+  } else if (weaponName === 3) {
+    weaponName = 2;
   }
+  if (armorName === -1) {
+    armorName = 0;
+  } else if (armorName === 3) {
+    armorName = 2;
+  }
+};
+shopLimit();
+
+const bronzeDagger = {
+  name: "Bronze Dagger",
+  cost: 10,
+  damage: 3,
+};
+const ironDagger = {
+  name: "Iron Dagger",
+  cost: 100,
+  damage: 5,
+};
+const steelDagger = {
+  name: "Steel Dagger",
+  cost: 500,
+  damage: 15,
+};
+
+const bronzeArmor = {
+  name: "Bronze Armor",
+  cost: 25,
+  armor: 20,
+};
+const ironArmor = {
+  name: "Iron Armor",
+  cost: 100,
+  armor: 20,
+};
+const steelArmor = {
+  name: "Steel Armor",
+  cost: 500,
+  armor: 50,
+};
+
+let shopUpdate = function () {
+  if (weaponName == 0) {
+    document.querySelector(".weaponName").textContent =
+      "Name: " + bronzeDagger.name;
+    document.querySelector(".weaponCost").textContent =
+      "Cost: " + bronzeDagger.cost;
+    weaponCost = bronzeDagger.cost;
+    weaponDamage = bronzeDagger.damage;
+    document.querySelector(".weaponDamage").textContent =
+      "Damage: " + bronzeDagger.damage;
+  } else if (weaponName == 1) {
+    document.querySelector(".weaponName").textContent =
+      "Name: " + ironDagger.name;
+    weaponCost = ironDagger.cost;
+    weaponDamage = ironDagger.damage;
+    document.querySelector(".weaponCost").textContent =
+      "Cost: " + ironDagger.cost;
+    document.querySelector(".weaponDamage").textContent =
+      "Damage: " + ironDagger.damage;
+  } else if (weaponName == 2) {
+    document.querySelector(".weaponName").textContent =
+      "Name: " + steelDagger.name;
+    weaponCost = steelDagger.cost;
+    weaponDamage = steelDagger.damage;
+    document.querySelector(".weaponCost").textContent =
+      "Cost: " + steelDagger.cost;
+    document.querySelector(".weaponDamage").textContent =
+      "Damage: " + steelDagger.damage;
+  }
+
+  if (armorName == 0) {
+    document.querySelector(".armorName").textContent =
+      "Name: " + bronzeArmor.name;
+    document.querySelector(".armorCost").textContent =
+      "Cost: " + bronzeArmor.cost;
+    armorCost = bronzeArmor.cost;
+    armorArmor = bronzeArmor.armor;
+    document.querySelector(".armorArmor").textContent =
+      "Armor: " + bronzeArmor.armor;
+  } else if (armorName == 1) {
+    document.querySelector(".armorName").textContent =
+      "Name: " + ironArmor.name;
+    armorCost = ironArmor.cost;
+    armorArmor = ironArmor.armor;
+    document.querySelector(".armorCost").textContent =
+      "Cost: " + ironArmor.cost;
+    document.querySelector(".armorArmor").textContent =
+      "Armor: " + ironArmor.armor;
+  } else if (armorName == 2) {
+    document.querySelector(".armorName").textContent =
+      "Name: " + steelArmor.name;
+    armorCost = steelArmor.cost;
+    armorArmor = steelArmor.armor;
+    document.querySelector(".armorCost").textContent =
+      "Cost: " + steelArmor.cost;
+    document.querySelector(".armorArmor").textContent =
+      "Armor: " + steelArmor.armor;
+  }
+};
+shopUpdate();
+
+//shop next buttons weapon
+document.querySelector(".weaponNext").addEventListener("click", function () {
+  weaponName++;
+  shopLimit();
+  shopUpdate();
+  console.log(weaponName);
 });
-//iron dagger
-document.querySelector(".ironDagger").addEventListener("click", function () {
-  if (gold >= 100) {
-    gold -= 100;
-    weapon = 5;
-    document.querySelector(".weaponname").textContent = "Iron Dagger";
-    document.querySelector(".bronzeDagger").style.visibility = "hidden";
-    document.querySelector(".ironDagger").style.visibility = "hidden";
-    updateUI();
-  }
+//shop previous button
+document
+  .querySelector(".weaponPrevious")
+  .addEventListener("click", function () {
+    weaponName--;
+    shopLimit();
+    shopUpdate();
+    console.log(weaponName);
+  });
+
+//shop next buttons armor
+document.querySelector(".armorNext").addEventListener("click", function () {
+  armorName++;
+  shopLimit();
+  shopUpdate();
+  console.log(armorName);
 });
-//Steel Dagger
-document.querySelector(".steelDagger").addEventListener("click", function () {
-  if (gold >= 500) {
-    gold -= 500;
-    weapon = 10;
-    document.querySelector(".weaponname").textContent = "steel Dagger";
-    document.querySelector(".bronzeDagger").style.visibility = "hidden";
-    document.querySelector(".ironDagger").style.visibility = "hidden";
-    document.querySelector(".steelDagger").style.visibility = "hidden";
-    updateUI();
-  }
+//shop previous armor
+document.querySelector(".armorPrevious").addEventListener("click", function () {
+  armorName--;
+  shopLimit();
+  shopUpdate();
+  console.log(armorName);
 });
 
-//buy armor
+//shop buy buttons
 
-//bronze armor
-document.querySelector(".bronzeArmor").addEventListener("click", function () {
-  if (gold >= 25) {
-    gold -= 25;
-    armor = 5;
-    document.querySelector(".armorname").textContent = "Bronze Armor";
-    document.querySelector(".bronzeArmor").style.visibility = "hidden";
-    updateUI();
-  }
-});
-//iron Armor
-document.querySelector(".ironArmor").addEventListener("click", function () {
-  if (gold >= 100) {
-    gold -= 100;
-    armor = 2;
-    document.querySelector(".armorname").textContent = "Iron Armor";
-    document.querySelector(".bronzeArmor").style.visibility = "hidden";
-    document.querySelector(".ironArmor").style.visibility = "hidden";
-    updateUI();
-  }
-});
-//Steel Armor
-document.querySelector(".steelArmor").addEventListener("click", function () {
-  if (gold >= 500) {
-    gold -= 500;
-    armor = 3;
-    document.querySelector(".armorname").textContent = "steel Armor";
-    document.querySelector(".bronzeArmor").style.visibility = "hidden";
-    document.querySelector(".ironArmor").style.visibility = "hidden";
-    document.querySelector(".steelArmor").style.visibility = "hidden";
-    updateUI();
-  }
-});
+//weapon
+document
+  .querySelector(".buyWeaponButton")
+  .addEventListener("click", function () {
+    if (gold >= weaponCost) {
+      gold -= weaponCost;
+      weapon = weaponDamage;
+      updateUI();
+    }
+  });
 
+//armor
+document
+  .querySelector(".buyArmorButton")
+  .addEventListener("click", function () {
+    if (gold >= armorCost) {
+      gold -= armorCost;
+      armor = armorArmor;
+      updateUI();
+    }
+  });
 //level strengthXp chart
 
 setInterval(function updatexp() {
