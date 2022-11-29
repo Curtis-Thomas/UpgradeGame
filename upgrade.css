@@ -272,12 +272,13 @@ h5 {
 .container-popup {
   position: relative;
   position: fixed;
-  top: 0;
+  top: 20%;
   right: 50%;
   bottom: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.952);
   display: none;
+  border: solid 3px rgb(48, 41, 1);
 }
 
 .popup {
