@@ -100,25 +100,8 @@ const chickenMaxHealth = 3;
 let chickenHealth = 3;
 let chickenDamage = 1;
 let chickenGoldDrop = 0;
-
 //chicken loot
 const chickenLoot = ["gold", "bones"];
-
-// //select chicken button
-
-// document.querySelector(".enemyChicken").addEventListener("click", function () {
-//   //sets enemy stats
-//   enemyName = chickenName;
-//   enemyHealthNumber = chickenHealth;
-//   enemyDamage = chickenDamage;
-//   enemyMaxHealth = chickenMaxHealth;
-//   lootTable = chickenLoot;
-//   goldDrop = chickenGoldDrop;
-
-//   //updates enemy stats UI
-
-//   updateUI();
-// });
 
 // //Bear
 
@@ -131,22 +114,6 @@ let bearHealth = 50;
 let bearDamage = 20;
 let bearGoldDrop = 5;
 
-// //select bear button
-
-// document.querySelector(".enemyBear").addEventListener("click", function () {
-//   //sets enemy stats
-//   enemyName = bearName;
-//   enemyHealthNumber = bearHealth;
-//   enemyDamage = bearDamage;
-//   enemyMaxHealth = bearMaxHealth;
-//   lootTable = bearLoot;
-//   goldDrop = bearGoldDrop;
-
-//   //updates enemy stats UI
-
-//   updateUI();
-// });
-
 // //Barbarian
 
 // //bear loot
@@ -157,23 +124,6 @@ const barbarianMaxHealth = 100;
 let barbarianHealth = 100;
 let barbarianDamage = 200;
 let barbarianGoldDrop = 50;
-// //select Barbarian button
-
-// document
-//   .querySelector(".enemyBarbarian")
-//   .addEventListener("click", function () {
-//     //sets enemy stats
-//     enemyName = barbarianName;
-//     enemyHealthNumber = barbarianHealth;
-//     enemyDamage = barbarianDamage;
-//     enemyMaxHealth = barbarianMaxHealth;
-//     lootTable = barbarianLoot;
-//     goldDrop = barbarianGoldDrop;
-
-//     //updates enemy stats UI
-
-//     updateUI();
-//   });
 
 //current enemy
 let currentEnemy = 0;
@@ -462,6 +412,7 @@ let shopLimit = function () {
 };
 shopLimit();
 
+//weapon stats
 const bronzeDagger = {
   name: "Bronze Dagger",
   cost: 10,
@@ -478,6 +429,7 @@ const steelDagger = {
   damage: 15,
 };
 
+//armor stats
 const bronzeArmor = {
   name: "Bronze Armor",
   cost: 25,
@@ -494,6 +446,7 @@ const steelArmor = {
   armor: 50,
 };
 
+//updates shop to relevant item
 let shopUpdate = function () {
   if (weaponName == 0) {
     document.querySelector(".weaponName").textContent =
@@ -589,7 +542,7 @@ document.querySelector(".armorPrevious").addEventListener("click", function () {
 
 //shop buy buttons
 
-//weapon
+//buy weapon btn
 document
   .querySelector(".buyWeaponButton")
   .addEventListener("click", function () {
@@ -600,7 +553,7 @@ document
     }
   });
 
-//armor
+//buy armor btn
 document
   .querySelector(".buyArmorButton")
   .addEventListener("click", function () {

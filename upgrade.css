@@ -4,14 +4,14 @@ body {
   border: 1px solid #353535;
 }
 p {
-  color: #6c7045;
+  color: #a2a86b;
 }
 h2,
 h3,
 h4,
 h5 {
   text-align: center;
-  color: #9b4f29;
+  color: #975330;
 }
 
 .top {
@@ -272,9 +272,9 @@ h5 {
 .container-popup {
   position: relative;
   position: fixed;
-  top: 20%;
+  top: 10%;
   right: 50%;
-  bottom: 20%;
+  bottom: 10%;
   left: 0;
   background: rgba(0, 0, 0, 0.952);
   display: none;
@@ -296,9 +296,9 @@ h5 {
 .container-popup-shop {
   position: relative;
   position: fixed;
-  top: 34%;
+  top: 10%;
   right: 1%;
-  bottom: 30%;
+  bottom: 10%;
   left: 50%;
   background: rgba(0, 0, 0, 0.952);
 
@@ -399,19 +399,6 @@ h5 {
     font-size: 0.65rem;
   }
 
-  .container-popup-shop {
-    position: relative;
-    position: fixed;
-    top: 34%;
-    right: 1%;
-    bottom: 0;
-    left: 50%;
-    background: rgba(0, 0, 0, 0.952);
-
-    display: none;
-    border: solid 3px rgb(48, 41, 1);
-    padding: 10px;
-  }
   .container-popup-shop button {
     padding: 0;
   }
