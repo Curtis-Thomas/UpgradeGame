@@ -1,6 +1,6 @@
 # upgradeGame
 
-Work in projress JavaScript browser game.
+Work in progress JavaScript browser game.
 
 - Pressing fight starts auto combat
   (looping attacks using player and enemy damage)
