@@ -105,7 +105,7 @@ h5 {
   margin-right: auto;
   text-align: center;
   border: solid 1px #43433c;
-  width: 90%;
+  width: 100%;
   background-color: #242424;
 }
 
@@ -397,5 +397,36 @@ h5 {
   p,
   button {
     font-size: 0.65rem;
+  }
+
+  .container-popup-shop {
+    position: relative;
+    position: fixed;
+    top: 34%;
+    right: 1%;
+    bottom: 0;
+    left: 50%;
+    background: rgba(0, 0, 0, 0.952);
+
+    display: none;
+    border: solid 3px rgb(48, 41, 1);
+    padding: 10px;
+  }
+  .container-popup-shop button {
+    padding: 0;
+  }
+
+  .bottomleft {
+    width: 50%;
+    padding: 15px;
+  }
+  .bottommiddle {
+    width: 50%;
+    border-left: solid 1px rgb(49, 49, 49);
+    padding: 0px;
+  }
+  .bottommiddlebox2 {
+    border-top: 1px solid black;
+    padding: 5px;
   }
 }
