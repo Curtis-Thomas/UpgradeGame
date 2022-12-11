@@ -274,7 +274,7 @@ h5 {
   position: fixed;
   top: 20%;
   right: 50%;
-  bottom: 0;
+  bottom: 20%;
   left: 0;
   background: rgba(0, 0, 0, 0.952);
   display: none;
@@ -396,6 +396,6 @@ h5 {
   h5,
   p,
   button {
-    font-size: 0.75rem;
+    font-size: 0.65rem;
   }
 }

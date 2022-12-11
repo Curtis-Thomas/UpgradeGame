@@ -35,7 +35,7 @@ let enemyDamage = "0";
 //info box default
 const infoRefresh = () => {
   document.querySelector(".infobox").textContent =
-    "Choose enemy (start with chicken), Pressing fight will start the auto combat. If your health reaches 0 you will die. If you die, press revive. Gain stat levels and equipment to defeats harder enemies.";
+    "Pressing fight will start the auto combat. Upgrade and progress.";
   document.querySelector(".infobox").style.color = "white";
 };
 //damage modifiers
