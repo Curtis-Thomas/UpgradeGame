@@ -32,6 +32,9 @@ let enemyMaxHealth = "0";
 let enemyHealthNumber = "0";
 let enemyDamage = "0";
 
+//monsters kileld
+let monstersK = 0;
+
 //info box default
 const infoRefresh = () => {
   document.querySelector(".infobox").textContent =
@@ -280,6 +283,9 @@ document.querySelector(".fight").addEventListener("click", function () {
       } else if (health > 0 && enemyHealthNumber <= 0) {
         enemyHealthNumber = enemyMaxHealth;
         gold += goldDrop;
+
+        monstersK++;
+        document.querySelector("#monstersK").textContent = monstersK;
 
         //roll for random item from enemy loot table
 

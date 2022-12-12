@@ -13,6 +13,6 @@ Work in projress JavaScript browser game.
 
 - Previous/Next button in enemy box chooses which enemy to fight and updates their info
 
--Harder enemies drop better loot(stored ina loot array), but also hit harder and have more hp
+- Harder enemies drop better loot(stored ina loot array), but also hit harder and have more hp
 
 - Open shop opens a weapon/Armor shop you can use gold to buy
