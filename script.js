@@ -62,6 +62,7 @@ const updateUI = () => {
   document.querySelector(".treasure").textContent = treasure;
   //updates main screen
   document.querySelector(".gold1").textContent = gold;
+  document.querySelector(".gold2").textContent = gold;
   document.querySelector(".bones1").textContent = bones;
   document.querySelector(".bearFur1").textContent = bearFur;
   document.querySelector(".treasure1").textContent = treasure;
